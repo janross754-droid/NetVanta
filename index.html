@@ -144,6 +144,36 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
  #adminPanel .btn{min-height:40px}
 }
 
+/* Customer dashboard mobile comfort and keyboard accessibility */
+#customerPanel .action-card:focus-visible,
+#customerPanel button:focus-visible,
+#customerPanel #recentViewAll:focus-visible{
+ outline:3px solid #8bb8ff;
+ outline-offset:3px;
+}
+#customerPanel .wallet{display:flex;align-items:center;justify-content:space-between;gap:14px}
+#customerPanel .wallet>div{min-width:0}
+#customerPanel .wallet h2{overflow-wrap:anywhere}
+#customerPanel .action-card{min-width:0}
+#customerPanel .action-card>span:last-child{min-width:0;overflow-wrap:anywhere}
+#customerPanel .action-icon{flex:0 0 38px}
+#customerPanel #recentOrders .tablewrap{max-width:100%;overflow-x:auto}
+@media(max-width:420px){
+ #customerPanel>.panel{padding:14px}
+ #customerPanel>.panel:first-child>.head{align-items:flex-start}
+ #customerPanel .wallet{gap:9px;padding:15px}
+ #customerPanel .wallet h2{font-size:25px;letter-spacing:-.7px}
+ #customerPanel #topUpBtn{min-height:42px;padding:10px 12px}
+ #customerPanel .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ #customerPanel .grid .stat{padding:12px}
+ #customerPanel .grid .stat small{font-size:10px;line-height:1.35}
+ #customerPanel .grid .stat b{font-size:18px;overflow-wrap:anywhere}
+ #customerPanel .action-grid{gap:8px}
+ #customerPanel .action-card{gap:8px;padding:10px;font-size:12px}
+ #customerPanel .action-icon{flex-basis:32px;width:32px;height:32px}
+ #customerPanel #recentViewAll{padding:9px 10px;font-size:11px}
+}
+
 </style></head><body>
 <header class="top"><nav class="nav"><button id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><div class="brand"><div class="logo">N</div>NetVanta</div><div class="navright"><button id="navLogin" class="outline">Log in</button><button id="navSignup" class="light">Create account</button><button id="navLogout" class="outline hidden">Log out</button><button id="profileOpen" class="profileBtn hidden" aria-label="My profile">•</button></div></nav></header>
 <div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>

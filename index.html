@@ -156,6 +156,18 @@ $('orderTabs').querySelectorAll('button').forEach(b=>b.onclick=()=>{activeFilter
 $('saveProfile').onclick=saveProfile;$('updatePassword').onclick=changePassword;$('deleteAccount').onclick=()=>$('deleteMsg').textContent='For your security, account deletion must be handled through a verified support request. Please contact NetVanta support so the request and identity can be checked before permanent deletion.';$('chatFab').onclick=()=>{page('supportPanel');loadCustomerSupport()};$('sendCustomerSupport').onclick=sendCustomerSupport;$('requestHumanSupport').onclick=()=>{if(!$('customerSupportInput').value.trim())$('customerSupportInput').value='I would like to speak to a human agent, please.';sendCustomerSupport()};$('customerSupportInput').onkeydown=e=>{if(e.key==='Enter')sendCustomerSupport()};$('sendAdminSupport').onclick=sendAdminSupport;$('adminSupportInput').onkeydown=e=>{if(e.key==='Enter')sendAdminSupport()};$('resolveAdminSupport').onclick=resolveAdminSupport;
 $('customerSearch').oninput=renderAdminCustomers;$('refreshCustomers').onclick=renderAdmin;$('adminRefresh').onclick=renderAdmin;$('refreshCatalog').onclick=loadCatalog;$('saveCatalog').onclick=saveCatalog;$('clearCatalog').onclick=clearCatalogForm;
 let authRestoreStarted=false;
+async function refreshOpenSupportChat(){
+ if(!user||document.visibilityState!=='visible')return;
+ if(!isAdmin&&!$('supportPanel').classList.contains('hidden')&&customerConversation){
+  const c=await supabase.from('support_conversations').select('id,status,updated_at').eq('id',customerConversation.id).maybeSingle();
+  if(!c.error&&c.data){customerConversation={...customerConversation,...c.data};const status=customerConversation.status;$('supportStatus').textContent=status==='waiting_agent'?'Your chat is waiting for a human NetVanta agent.':status==='replied'?'A human NetVanta agent has replied.':'NetVanta AI support · Ask for a human agent at any time.';await loadCustomerSupportMessages()}
+ }
+ if(isAdmin&&!$('adminPanel').classList.contains('hidden')){
+  await loadAdminConversations();
+  if(activeAdminConversation)await selectAdminConversation(activeAdminConversation);
+ }
+}
+setInterval(()=>{refreshOpenSupportChat().catch(e=>console.error('Support chat refresh failed:',e))},10000);
 $('sessionDiagnostic').textContent='Login check: checking saved session…';
 supabase.auth.onAuthStateChange((event,nextSession)=>{queueMicrotask(()=>{if(nextSession?.user){if(!user||user.id!==nextSession.user.id)enterApp(nextSession.user)}else if(event==='SIGNED_OUT'){user=null;isAdmin=false;profile=null;wallet=0;orders=[];transactions=[];page('welcomePanel')}})});
 const storageBeforeRestore=authStorageStatus();

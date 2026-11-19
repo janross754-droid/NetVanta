@@ -26,12 +26,57 @@
 .network-sub{display:block;color:#8794a7;font-size:10px;font-weight:600;margin-top:4px}
 .quick-action-heading{margin:0}
 @media(max-width:600px){.action-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.action-card{min-height:76px;padding:12px;gap:9px}.action-icon{width:39px;height:39px;flex-basis:39px}.network-grid{gap:8px}.network.network-card{padding:9px 7px;gap:7px;min-height:64px}.brand-mark{width:34px;height:34px;flex-basis:34px;font-size:10px}.network-name{font-size:11px}}
+
+
+/* NetVanta experience refresh: clearer hierarchy and mobile comfort */
+:root{--shadow-soft:0 12px 32px rgba(7,26,53,.07)}
+html{scroll-behavior:smooth}
+button,a,input,select{ -webkit-tap-highlight-color:transparent }
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #70a7ff;outline-offset:2px}
+.hero{position:relative;isolation:isolate;overflow:hidden}
+.hero:before{content:"";position:absolute;width:360px;height:360px;right:-95px;top:-145px;border-radius:50%;background:radial-gradient(circle,rgba(37,200,210,.16),transparent 68%);z-index:-1;pointer-events:none}
+.heroCard{position:relative;overflow:hidden;box-shadow:0 22px 55px rgba(0,0,0,.18)}
+.heroCard:after{content:"";position:absolute;width:190px;height:190px;right:-70px;bottom:-105px;border:1px solid rgba(99,220,229,.22);border-radius:50%;box-shadow:0 0 0 18px rgba(99,220,229,.035),0 0 0 38px rgba(99,220,229,.025);pointer-events:none}
+.panel{box-shadow:var(--shadow-soft);transition:box-shadow .18s ease,border-color .18s ease}
+.panel .head{flex-wrap:wrap}
+.wallet{box-shadow:0 12px 28px rgba(23,105,255,.13)}
+.stat{box-shadow:0 4px 14px rgba(7,26,53,.025)}
+.action-card:focus-visible,.network:focus-visible,.tab:focus-visible{outline:3px solid #70a7ff;outline-offset:2px}
+#customerPanel .panel:first-child{border-color:#dce8f8}
+#customerGreeting{font-size:23px}
+#ordersPanel .tabs{padding-bottom:3px}
+#ordersPanel .tab{white-space:nowrap}
+@media(max-width:700px){
+ .hero{gap:22px}
+ .hero p{font-size:14px}
+ .heroCard{padding:21px;border-radius:19px}
+ main{padding:16px 12px 48px}
+ .panel{border-radius:16px;margin-bottom:12px}
+ .head{align-items:flex-start}
+ .head>.row{width:100%}
+ .head>.row button{flex:1}
+ .wallet{padding:17px;border-radius:16px}
+ .wallet h2{font-size:24px}
+ #customerGreeting{font-size:20px}
+ #ordersPanel .tabs{flex-wrap:nowrap;overflow-x:auto;padding:2px 1px 9px;scrollbar-width:thin}
+ #ordersPanel .tab{flex:0 0 auto}
+ .field{min-width:0;flex:1 1 100%}
+ .row>.field{flex:1 1 100%}
+}
+@media(max-width:380px){
+ .hero h1{font-size:39px;letter-spacing:-1.8px}
+ .navright button{padding:8px;font-size:11px}
+ .brand{font-size:16px}
+ .logo{width:32px;height:32px}
+ .action-card{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 </style></head><body>
 <header class="top"><nav class="nav"><button id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><div class="brand"><div class="logo">N</div>NetVanta</div><div class="navright"><button id="navLogin" class="outline">Log in</button><button id="navSignup" class="light">Create account</button><button id="navLogout" class="outline hidden">Log out</button><button id="profileOpen" class="profileBtn hidden" aria-label="My profile">•</button></div></nav></header>
 <div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>
 <section id="heroSection" class="hero top"><div><div class="eyebrow">Stay connected, effortlessly</div><h1>Data that keeps<br>you <span>moving.</span></h1><p>Your next bundle, made simple. Choose your network, pick a data size and send it to the number you want.</p><div class="pills"><span class="pill">MTN</span><span class="pill">Telecel</span><span class="pill">AirtelTigo</span><span class="pill">Built for Ghana</span></div><div class="row" style="max-width:350px;margin-top:20px"><button id="heroSignup" class="btn primary">Create Account</button><button id="heroLogin" class="btn light">Log in</button></div></div><div class="heroCard"><small>YOUR CONNECTION, YOUR WAY</small><strong>More data. Less hassle.</strong><div style="height:75px;display:flex;align-items:end;gap:7px;margin:18px 0"><i style="height:30%;flex:1;background:#26c6da;border-radius:6px"></i><i style="height:48%;flex:1;background:#26c6da;border-radius:6px"></i><i style="height:65%;flex:1;background:#26c6da;border-radius:6px"></i><i style="height:82%;flex:1;background:#26c6da;border-radius:6px"></i><i style="height:100%;flex:1;background:#26c6da;border-radius:6px"></i></div><small>Simple bundle selection · Helpful customer support</small></div></section>
 <main>
-<section id="welcomePanel" class="panel"><div class="head"><div><h2>Welcome to NetVanta GH</h2><div class="muted">Create an account to get started with your wallet, airtime and data bundles.</div></div></div><p class="muted">A simpler way to stay connected in Ghana.</p><p id="sessionDiagnostic" class="muted" aria-live="polite">Login check: waiting…</p></section>
+<section id="welcomePanel" class="panel"><div class="head"><div><h2>Your connection starts here</h2><div class="muted">Create your NetVanta account to access your customer dashboard and support.</div></div></div><div class="grid"><div class="stat"><small>Made for Ghana</small><b style="font-size:17px">Local networks</b><span>MTN · Telecel · AirtelTigo</span></div><div class="stat"><small>Help when you need it</small><b style="font-size:17px">Customer support</b><span>Start with our AI assistant or request an agent</span></div></div><p class="muted" style="margin:14px 0 0">Wallet deposits and bundle purchases will be enabled after provider approvals and live testing.</p><p id="sessionDiagnostic" class="muted" aria-live="polite">Login check: waiting…</p></section>
 <section id="authPanel" class="panel hidden"><div class="head"><div><h2 id="authTitle">Create Account</h2><div class="muted" id="authSub">Fill in the details below to get started.</div></div><button id="authClose" class="btn soft">Back</button></div>
 <div id="signupFields"><div class="row"><div class="field"><label>First Name*</label><input id="firstName" autocomplete="given-name" placeholder="First name"></div><div class="field"><label>Last Name*</label><input id="lastName" autocomplete="family-name" placeholder="Last name"></div></div><div class="field"><label>Email*</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label>Phone Number*</label><input id="phone" type="tel" autocomplete="tel" placeholder="+233550200000"><div class="muted">Used for SMS OTP login and order notifications. Outside Ghana, include the country code (e.g. +233550200000).</div></div><div class="field"><label>Country*</label><select id="country"><option value="">Select country</option><option>Ghana</option><option>Togo</option><option>Nigeria</option><option>Ivory Coast</option><option>Other</option></select></div><div class="field"><label>Referral Code (optional)</label><input id="referral" placeholder="Referral code"></div><div class="row"><div class="field"><label>Password*</label><input id="password" type="password" autocomplete="new-password" placeholder="At least 8 characters"></div><div class="field"><label>Confirm Password*</label><input id="confirmPassword" type="password" autocomplete="new-password" placeholder="Confirm password"></div></div><p class="muted">By creating an account you agree to our <a href="#" id="termsLink">Terms and Conditions</a> and <a href="#" id="privacyLink">Privacy Policy</a>.</p></div>
 <div id="loginFields" class="hidden"><div class="field"><label>Email</label><input id="loginEmail" type="email" autocomplete="email" placeholder="you@example.com"></div><div class="field"><label>Password</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Your password"></div></div>

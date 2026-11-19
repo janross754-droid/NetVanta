@@ -220,6 +220,66 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 #ordersPanel .status-success,#ordersPanel .status-successful{background:#e7f7ef;color:#087f5b}
 #ordersPanel .status-reversed,#ordersPanel .status-cancelled{background:#eef2f7;color:#53647b}
 @media(max-width:600px){#ordersPanel .order-status-help{min-width:145px}}
+
+/* Admin dashboard: wider panels and prevent clipped text */
+@media (min-width: 641px){
+  main:has(#adminPanel:not(.hidden)){max-width:1440px;padding-left:24px;padding-right:24px}
+  #adminPanel>.panel{padding:24px}
+  #adminPanel>.panel:first-child .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+#adminPanel,#adminPanel *{box-sizing:border-box;min-width:0}
+#adminPanel{width:100%;max-width:100%;overflow:visible}
+#adminPanel>.panel{width:100%;max-width:100%;overflow:visible}
+#adminPanel .head>div{min-width:0;flex:1 1 220px}
+#adminPanel .head h2,#adminPanel h3,
+#adminPanel .muted,#adminPanel .notice,
+#adminPanel label,#adminPanel .stat small,
+#adminPanel [id$="Title"],#adminPanel [id$="Details"]{
+  max-width:100%;white-space:normal;overflow-wrap:anywhere;word-break:normal;line-height:1.5
+}
+#adminPanel .stat{min-height:88px;display:flex;flex-direction:column;justify-content:center;overflow:visible}
+#adminPanel .stat b{max-width:100%;white-space:normal;overflow-wrap:anywhere;word-break:break-word;line-height:1.25}
+#adminPanel .grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+#adminPanel .row{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px}
+#adminPanel .row>*{min-width:0;max-width:100%;flex:1 1 220px}
+#adminPanel .row>.btn{flex:0 1 auto;white-space:normal;overflow-wrap:anywhere}
+#adminPanel .field{min-width:0;width:100%}
+#adminPanel .field label{display:block}
+#adminPanel .field input,#adminPanel .field select,
+#adminPanel input,#adminPanel select{max-width:100%;min-width:0}
+#adminPanel #adminCustomerDetails{overflow:visible!important;min-height:150px;white-space:normal;overflow-wrap:anywhere}
+#adminPanel #adminCustomerDetails *{max-width:100%;overflow-wrap:anywhere}
+#adminPanel #adminSupportTitle{display:block;min-width:0;white-space:normal;overflow-wrap:anywhere}
+#adminPanel #adminConversationList,#adminPanel #adminCustomerList{min-width:0!important;max-width:100%;overflow:visible}
+#adminPanel [data-admin-customer],#adminPanel [data-conversation]{display:block;width:100%;max-width:100%;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+#adminPanel .tablewrap{width:100%;max-width:100%;overflow-x:auto;overscroll-behavior-x:contain}
+#adminPanel table{min-width:680px}
+#adminPanel .notice{white-space:normal;overflow-wrap:anywhere}
+#adminPanel #adminSupportMessages{max-width:100%;overflow-x:hidden;overflow-y:auto;overflow-wrap:anywhere}
+#adminPanel #adminSupportMessages>div{max-width:100%!important;overflow-wrap:anywhere;word-break:break-word}
+@media(max-width:640px){
+  main:has(#adminPanel:not(.hidden)){width:100%;max-width:100%;padding:12px 10px 42px}
+  #adminPanel{gap:12px}
+  #adminPanel>.panel{padding:17px 14px;border-radius:15px}
+  #adminPanel>.panel:first-child .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #adminPanel .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  #adminPanel .stat{min-height:82px;padding:13px 11px}
+  #adminPanel .stat small{font-size:11px}
+  #adminPanel .stat b{font-size:clamp(16px,4.5vw,21px)}
+  #adminPanel .head{align-items:flex-start}
+  #adminPanel .head>.btn{flex:1 1 135px}
+  #adminPanel .row>*{flex:1 1 100%}
+  #adminPanel .row>.btn{flex:1 1 135px}
+  #adminPanel #adminCustomerList,#adminPanel #adminCustomerDetails,
+  #adminPanel #adminConversationList,#adminPanel #adminSupportMessages{width:100%;max-width:100%}
+  #adminPanel #adminSupportMessages{height:260px!important}
+}
+@media(max-width:360px){
+  #adminPanel>.panel{padding:14px 11px}
+  #adminPanel .grid{grid-template-columns:1fr}
+  #adminPanel .stat{min-height:72px}
+}
+
 </style></head><body>
 <header class="top"><nav class="nav"><button id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><div class="brand"><div class="logo">N</div>NetVanta</div><div class="navright"><button id="navLogin" class="outline">Log in</button><button id="navSignup" class="light">Create account</button><button id="navLogout" class="outline hidden">Log out</button><button id="profileOpen" class="profileBtn hidden" aria-label="My profile">•</button></div></nav></header>
 <div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="pendingPayments">Pending Payments</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>

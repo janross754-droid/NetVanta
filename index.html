@@ -107,12 +107,38 @@ async function resolveAdminSupport(){if(!activeAdminConversation){alert('Please 
 function csvDownload(rows,name){const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download=name;a.click();URL.revokeObjectURL(a.href)}
 $('navLogin').onclick=$('heroLogin').onclick=()=>openAuth(false);$('navSignup').onclick=$('heroSignup').onclick=()=>openAuth(true);$('authClose').onclick=()=>page(user?(isAdmin?'adminPanel':'customerPanel'):'welcomePanel');$('authSwitch').onclick=()=>openAuth($('authPanel').dataset.signup!=='yes');$('authSubmit').onclick=submitAuth;$('navLogout').onclick=leaveApp;
 $('menuOpen').onclick=openMenu;$('menuClose').onclick=closeMenu;$('drawerShade').onclick=closeMenu;document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>{const map={dashboard:'customerPanel',airtime:'airtimePanel',data:'dataPanel',orders:'ordersPanel',transactions:'transactionsPanel',profile:'profilePanel',topup:'topupPanel',support:'supportPanel'};if(b.dataset.page==='dashboard')loadOrders();if(b.dataset.page==='orders')renderOrders();if(b.dataset.page==='transactions')loadTransactions();if(b.dataset.page==='support')loadCustomerSupport();page(map[b.dataset.page]||'customerPanel')}));$('profileOpen').onclick=()=>page('profilePanel');$('quickAirtime').onclick=()=>{loadWallet();page('airtimePanel')};$('quickData').onclick=()=>{loadWallet();page('dataPanel')};$('quickOrders').onclick=()=>{renderOrders();page('ordersPanel')};$('quickTransactions').onclick=()=>{loadTransactions();page('transactionsPanel')};$('recentViewAll').onclick=()=>{renderOrders();page('ordersPanel')};$('topUpBtn').onclick=()=>{loadWallet();page('topupPanel')};document.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>page('customerPanel'));
-$('paystackTopup').onclick=()=>{$('topupMsg').textContent='Paystack checkout is not active yet. Your merchant account is still awaiting approval, and a secure server-side Paystack integration must be configured before money can be accepted or credited to your wallet.'};
+async function startWalletTopup(){
+ const amount=Number($('topupAmount').value);
+ if(!Number.isFinite(amount)||amount<1||amount>2000||Math.round(amount*100)/100!==amount){$('topupMsg').textContent='Enter an amount from GHS 1.00 to GHS 2,000.00.';return}
+ const button=$('paystackTopup');button.disabled=true;button.textContent='Connecting to Paystack...';$('topupMsg').textContent='Preparing your secure checkout. Please wait.';
+ try{
+  const {data,error}=await supabase.functions.invoke('paystack-initialize',{body:{amount}});
+  if(error){let message=error.message||'Could not start checkout.';try{const body=await error.context.json();message=body.error||message}catch{}throw new Error(message)}
+  if(!data?.authorization_url)throw new Error(data?.error||'Paystack did not return a checkout link.');
+  window.location.href=data.authorization_url;
+ }catch(e){$('topupMsg').textContent=e.message||'Could not start payment. Please try again.'}
+ finally{button.disabled=false;button.textContent='Continue to Paystack'}
+}
+async function handlePaystackReturn(){
+ const params=new URLSearchParams(window.location.search);
+ if(params.get('payment')!=='return')return;
+ const reference=params.get('reference');
+ $('topupMsg').textContent='Checking your payment with Paystack...';page('topupPanel');
+ if(!reference){$('topupMsg').textContent='We could not find the payment reference. Please refresh your wallet after checking your Paystack receipt.';return}
+ try{
+  const {data,error}=await supabase.functions.invoke('paystack-verify',{body:{reference}});
+  if(error){let message=error.message||'Could not verify payment.';try{const body=await error.context.json();message=body.error||body.message||message}catch{}throw new Error(message)}
+  if(data?.success){$('topupMsg').textContent=data.already_credited?'This top-up was already added to your wallet.':'Payment confirmed! Your wallet has been credited.';await loadWallet();await loadTransactions()}
+  else $('topupMsg').textContent=data?.message||'Payment is not confirmed yet. Your wallet will update once Paystack confirms it.';
+ }catch(e){$('topupMsg').textContent=e.message||'We could not verify the payment yet. Please refresh shortly.'}
+ history.replaceState({},document.title,window.location.pathname);
+}
+$('paystackTopup').onclick=startWalletTopup;
 document.querySelectorAll('[data-airnet]').forEach(b=>b.onclick=()=>{airNetwork=b.dataset.airnet;document.querySelectorAll('[data-airnet]').forEach(x=>x.classList.toggle('active',x===b));$('airtimeNetworkLabel').textContent='Network: '+airNetwork});$('airtimeAmount').oninput=()=>{$('airtimePay').textContent='Pay '+money($('airtimeAmount').value)+' →'};$('airtimePay').onclick=()=>alert('Airtime ordering will be enabled after the supplier connection is approved and tested.');
 document.querySelectorAll('[data-datanet]').forEach(b=>b.onclick=()=>{dataNetwork=b.dataset.datanet;document.querySelectorAll('[data-datanet]').forEach(x=>x.classList.toggle('active',x===b))});$('dataPay').onclick=()=>alert('Data ordering will be enabled when verified supplier packages and live delivery are connected.');
 $('orderTabs').querySelectorAll('button').forEach(b=>b.onclick=()=>{activeFilter=b.dataset.status;$('orderTabs').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));renderOrders()});['orderType','orderFrom','orderTo'].forEach(id=>$(id).onchange=renderOrders);$('refreshOrders').onclick=loadOrders;$('exportCsv').onclick=()=>csvDownload([['Order','Network','Product','Amount GHS','Status','Date'],...orders.map(o=>[o.id,o.network,o.product_type||'data',o.amount,o.status,o.created_at])],'netvanta-orders.csv');$('refreshTransactions').onclick=async()=>{await loadWallet();await loadTransactions()};$('exportTransactions').onclick=()=>csvDownload([['Date','Description','Type','Amount','Status','Reference'],...transactions.map(t=>[t.created_at,t.description,t.type,t.amount,t.status,t.reference])],'netvanta-transactions.csv');
 $('saveProfile').onclick=saveProfile;$('updatePassword').onclick=changePassword;$('deleteAccount').onclick=()=>$('deleteMsg').textContent='For your security, account deletion must be handled through a verified support request. Please contact NetVanta support so the request and identity can be checked before permanent deletion.';$('openSupportChat').onclick=()=>alert('Use the blue support icon at the bottom right to open your private support chat.');$('chatFab').onclick=()=>{page('supportPanel');loadCustomerSupport()};$('openSupportChat').onclick=()=>{page('supportPanel');loadCustomerSupport()};$('sendCustomerSupport').onclick=sendCustomerSupport;$('customerSupportInput').onkeydown=e=>{if(e.key==='Enter')sendCustomerSupport()};$('sendAdminSupport').onclick=sendAdminSupport;$('adminSupportInput').onkeydown=e=>{if(e.key==='Enter')sendAdminSupport()};$('resolveAdminSupport').onclick=resolveAdminSupport;
 $('customerSearch').oninput=renderAdminCustomers;$('refreshCustomers').onclick=renderAdmin;$('adminRefresh').onclick=renderAdmin;$('refreshCatalog').onclick=loadCatalog;$('saveCatalog').onclick=saveCatalog;$('clearCatalog').onclick=clearCatalogForm;
 supabase.auth.onAuthStateChange(async(_event,session)=>{if(session?.user&&!user)await enterApp(session.user);else if(!session?.user&&user){user=null;isAdmin=false;page('welcomePanel')}});
-const {data:{session}}=await supabase.auth.getSession();if(session?.user)await enterApp(session.user);else page('welcomePanel');
+const {data:{session}}=await supabase.auth.getSession();if(session?.user){await enterApp(session.user);await handlePaystackReturn()}else page('welcomePanel');
 </script></body></html>

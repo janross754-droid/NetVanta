@@ -37,7 +37,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
 const supabase=createClient('https://fanpdxgbmzlsvkxgogfo.supabase.co','sb_publishable_NOjhK8y9NwDrxA8p0nkBZg_zGAXRVnK');
 const ADMIN='princeafful079@gmail.com', $=id=>document.getElementById(id);
-let user=null,isAdmin=false,profile=null,wallet=0,orders=[],transactions=[],activeFilter='all',airNetwork='MTN',dataNetwork='MTN',customerConversation=null,adminConversations=[],activeAdminConversation=null,adminProfileMap={};
+let user=null,isAdmin=false,profile=null,wallet=0,orders=[],transactions=[],activeFilter='all',airNetwork='MTN',dataNetwork='MTN',customerConversation=null,adminConversations=[],activeAdminConversation=null,adminProfileMap={},adminCustomers=[],adminOrders=[],adminWalletMap={};
 const pages=['welcomePanel','authPanel','customerPanel','topupPanel','airtimePanel','dataPanel','ordersPanel','transactionsPanel','profilePanel','supportPanel','adminPanel'];
 const money=n=>'GHS '+Number(n||0).toFixed(2);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

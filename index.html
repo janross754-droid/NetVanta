@@ -358,3 +358,11 @@ if(sessionError){console.error('NetVanta session restore failed:',sessionError);
 else if(session?.user){$('sessionDiagnostic').textContent='Login check: saved session restored successfully.';if(!user||user.id!==session.user.id)await enterApp(session.user)}
 else if(!user){const storageAfterRestore=authStorageStatus();$('sessionDiagnostic').textContent=storageAfterRestore==='blocked'?'Login check: Safari is blocking access to saved session storage.':storageAfterRestore==='saved'?'Login check: saved session data exists, but Supabase did not restore it.':'Login check: no saved session was found in this Safari browser.';page('welcomePanel')}
 </script></body></html>
+
+/* Data Bundles only: larger, stacked network cards; leave Airtime unchanged */
+#dataPanel .network-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#dataPanel .network.network-card{min-height:112px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;min-width:0}
+#dataPanel .network.network-card .brand-mark{width:52px;height:52px;flex:0 0 52px;font-size:14px}
+#dataPanel .network.network-card .network-name{display:block;width:100%;min-width:0;font-size:13px;line-height:1.2;text-align:center;white-space:normal;overflow-wrap:anywhere}
+#dataPanel .network.network-card .network-sub{font-size:10px}
+@media(max-width:600px){#dataPanel .network-grid{gap:10px}#dataPanel .network.network-card{min-height:106px;padding:10px 6px}#dataPanel .network.network-card .brand-mark{width:48px;height:48px;flex-basis:48px}#dataPanel .network.network-card .network-name{font-size:12px}}

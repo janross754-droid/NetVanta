@@ -187,6 +187,25 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
  #dataPanel .network-name{font-size:12px}
 }
 
+/* Roomier Data Bundles network selector */
+#dataPanel .network-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+#dataPanel .network.network-card{
+ min-width:0;min-height:112px;padding:14px 10px;gap:9px;
+ flex-direction:column;justify-content:center;align-items:center;text-align:center;
+}
+#dataPanel .brand-mark{width:52px;height:52px;flex:0 0 52px;font-size:14px}
+#dataPanel .network-name{
+ display:block;width:100%;min-width:0;white-space:normal;
+ overflow-wrap:anywhere;word-break:normal;text-align:center;font-size:13px;line-height:1.25;
+}
+#dataPanel .network-sub{font-size:10px;line-height:1.25}
+@media(max-width:600px){
+ #dataPanel .network-grid{gap:10px}
+ #dataPanel .network.network-card{min-height:106px;padding:12px 8px}
+ #dataPanel .brand-mark{width:48px;height:48px;flex-basis:48px}
+ #dataPanel .network-name{font-size:13px}
+}
+
 </style></head><body>
 <header class="top"><nav class="nav"><button id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><div class="brand"><div class="logo">N</div>NetVanta</div><div class="navright"><button id="navLogin" class="outline">Log in</button><button id="navSignup" class="light">Create account</button><button id="navLogout" class="outline hidden">Log out</button><button id="profileOpen" class="profileBtn hidden" aria-label="My profile">•</button></div></nav></header>
 <div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>

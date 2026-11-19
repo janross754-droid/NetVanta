@@ -71,6 +71,41 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
  .action-card{font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+
+/* Customer dashboard visual refinement */
+#customerPanel{display:grid;gap:2px}
+#customerPanel>.panel{position:relative;overflow:hidden}
+#customerPanel>.panel:first-child{background:linear-gradient(155deg,#fff 58%,#f4f8ff);}
+#customerPanel>.panel:first-child:after{content:"";position:absolute;right:-68px;top:-92px;width:210px;height:210px;border-radius:50%;border:1px solid #dce9ff;box-shadow:0 0 0 22px #edf4ff80,0 0 0 44px #f3f7ff80;pointer-events:none}
+#customerPanel>.panel:first-child>.head,#customerPanel>.panel:first-child>.wallet,#customerPanel>.panel:first-child>.grid{position:relative;z-index:1}
+#customerPanel .wallet{min-height:126px;padding:22px 23px;border:1px solid #397ce0;background:linear-gradient(115deg,#102f5b 0%,#1769ff 72%,#2689f4 100%);}
+#customerPanel .wallet small{font-size:11px;font-weight:750;letter-spacing:.6px;text-transform:uppercase;color:#d9e8ff}
+#customerPanel .wallet h2{font-size:32px;letter-spacing:-1px}
+#customerPanel .wallet p{font-size:12px;opacity:.9}
+#customerPanel #topUpBtn{min-width:88px;box-shadow:0 4px 12px #071a3522}
+#customerPanel .grid .stat{padding:18px 19px;background:linear-gradient(145deg,#fff,#f9fbff)}
+#customerPanel .grid .stat b{font-size:23px}
+#customerPanel .panel:nth-child(2) .head{margin-bottom:13px}
+#customerPanel .panel:nth-child(2) .head h2,#customerPanel .panel:nth-child(3) .head h2{font-size:19px}
+#customerPanel .action-card{min-height:88px;border-radius:17px;padding:14px;background:#fff;box-shadow:0 5px 18px rgba(11,43,80,.055)}
+#customerPanel .action-card:active{transform:scale(.985)}
+#customerPanel .action-card span:last-child{line-height:1.25}
+#customerPanel .action-card small{line-height:1.35}
+#customerPanel #recentOrders{border:1px solid #edf1f7;border-radius:13px;background:#fbfcfe;overflow:hidden}
+#customerPanel #recentOrders.empty{padding:26px 14px}
+#customerPanel #recentOrders .tablewrap{border-radius:13px}
+#customerPanel #recentOrders table{min-width:500px}
+#customerPanel #recentOrders th{background:#f7f9fc}
+#customerPanel #recentOrders td{background:#fff}
+@media(max-width:700px){
+ #customerPanel .wallet{min-height:112px;padding:17px}
+ #customerPanel .wallet h2{font-size:27px}
+ #customerPanel .grid .stat{padding:15px}
+ #customerPanel .grid .stat b{font-size:20px}
+ #customerPanel .action-card{min-height:78px;padding:11px;border-radius:15px}
+ #customerPanel #recentOrders.empty{padding:22px 12px}
+}
 </style></head><body>
 <header class="top"><nav class="nav"><button id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><div class="brand"><div class="logo">N</div>NetVanta</div><div class="navright"><button id="navLogin" class="outline">Log in</button><button id="navSignup" class="light">Create account</button><button id="navLogout" class="outline hidden">Log out</button><button id="profileOpen" class="profileBtn hidden" aria-label="My profile">•</button></div></nav></header>
 <div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>

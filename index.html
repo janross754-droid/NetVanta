@@ -326,14 +326,11 @@ body:before{
 .top{background:linear-gradient(110deg,#06162e 0%,#0a2850 58%,#0b4661 100%);box-shadow:0 8px 28px rgba(4,18,39,.18)}
 .nav{min-height:66px}
 .logo{box-shadow:0 5px 16px rgba(37,200,210,.24)}
-.theme-toggle{
  display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;
  padding:8px 11px;border:1px solid rgba(196,220,247,.3);border-radius:12px;
  background:rgba(255,255,255,.08);color:#f4f9ff;font-size:12px;font-weight:800;
  transition:background .2s ease,border-color .2s ease,transform .2s ease;
 }
-.theme-toggle:hover{background:rgba(255,255,255,.16);border-color:rgba(196,220,247,.58);transform:translateY(-1px)}
-.theme-toggle span:first-child{font-size:17px;line-height:1}
 .hero{padding-top:66px;padding-bottom:82px}
 .hero h1{letter-spacing:-2.8px}
 .heroCard{background:linear-gradient(145deg,rgba(22,64,112,.96),rgba(7,31,63,.98));border:1px solid rgba(103,220,229,.24);backdrop-filter:blur(12px)}
@@ -417,17 +414,13 @@ html[data-theme="dark"] .foot{color:#8196ad}
 html[data-theme="dark"] .danger{background:#48242b;color:#ffb8c0}
 @media(max-width:700px){
  .nav{min-height:60px;gap:8px}
- .theme-toggle{min-height:36px;padding:7px 9px}
  .hero{padding-top:42px;padding-bottom:55px}
 }
 @media(max-width:390px){
- .theme-toggle{gap:4px;padding:7px;font-size:11px}
  .navright{gap:5px}
 }
-@media(prefers-reduced-motion:reduce){body,.theme-toggle{transition:none}}
 
 </style></head><body>
-<header class="top"><nav class="nav"><button id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><div class="brand"><div class="logo">N</div>NetVanta</div><div class="navright"><button id="themeToggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch theme"><span id="themeIcon" aria-hidden="true">☾</span><span id="themeLabel">Dark</span></button><button id="navLogin" class="outline">Log in</button><button id="navSignup" class="light">Create account</button><button id="navLogout" class="outline hidden">Log out</button><button id="profileOpen" class="profileBtn hidden" aria-label="My profile">•</button></div></nav></header>
 <div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="pendingPayments">Pending Payments</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>
 <section id="heroSection" class="hero top"><div><div class="eyebrow">Stay connected, effortlessly</div><h1>Data that keeps<br>you <span>moving.</span></h1><p>Your next bundle, made simple. Choose your network, pick a data size and send it to the number you want.</p><div class="pills"><span class="pill">MTN</span><span class="pill">Telecel</span><span class="pill">AirtelTigo</span><span class="pill">Built for Ghana</span></div><div class="row" style="max-width:350px;margin-top:20px"><button id="heroSignup" class="btn primary">Create Account</button><button id="heroLogin" class="btn light">Log in</button></div></div><div class="heroCard"><small>YOUR CONNECTION, YOUR WAY</small><strong>More data. Less hassle.</strong><div style="height:75px;display:flex;align-items:end;gap:7px;margin:18px 0"><i style="height:30%;flex:1;background:#26c6da;border-radius:6px"></i><i style="height:48%;flex:1;background:#26c6da;border-radius:6px"></i><i style="height:65%;flex:1;background:#26c6da;border-radius:6px"></i><i style="height:82%;flex:1;background:#26c6da;border-radius:6px"></i><i style="height:100%;flex:1;background:#26c6da;border-radius:6px"></i></div><small>Simple bundle selection · Helpful customer support</small></div></section>
 <main>
@@ -497,17 +490,6 @@ const AUTH_STORAGE_KEY='sb-fanpdxgbmzlsvkxgogfo-auth-token';
 function authStorageStatus(){try{return localStorage.getItem(AUTH_STORAGE_KEY)?'saved':'missing'}catch(e){return 'blocked'}}
 const ADMIN='princeafful079@gmail.com', $=id=>document.getElementById(id);
 
-const THEME_KEY='netvanta-theme';
-function applyTheme(theme){
- const dark=theme==='dark';
- document.documentElement.dataset.theme=dark?'dark':'light';
- const btn=document.getElementById('themeToggle'),icon=document.getElementById('themeIcon'),label=document.getElementById('themeLabel');
- if(btn){btn.setAttribute('aria-pressed',String(dark));btn.setAttribute('aria-label',dark?'Switch to light mode':'Switch to dark mode');btn.title=dark?'Switch to light mode':'Switch to dark mode'}
- if(icon)icon.textContent=dark?'☀':'☾';
- if(label)label.textContent=dark?'Light':'Dark';
-}
-let savedTheme='light';try{savedTheme=localStorage.getItem(THEME_KEY)==='dark'?'dark':'light'}catch{}
-applyTheme(savedTheme);
 
 let user=null,isAdmin=false,profile=null,wallet=0,orders=[],transactions=[],activeFilter='all',airNetwork='MTN',dataNetwork='MTN',customerConversation=null,adminConversations=[],activeAdminConversation=null,adminProfileMap={},adminCustomers=[],adminOrders=[],adminWalletMap={},signupOtpChallenge=null,signupOtpVerifiedPhone=null,signupOtpToken=null,profileOtpChallenge=null;
 const pages=['welcomePanel','authPanel','customerPanel','topupPanel','airtimePanel','dataPanel','ordersPanel','transactionsPanel','pendingPaymentsPanel','profilePanel','supportPanel','adminPanel'];
@@ -860,7 +842,6 @@ async function selectAdminConversation(id){const c=adminConversations.find(x=>x.
 async function sendAdminSupport(){const msg=$('adminSupportInput').value.trim();if(!msg)return;if(!activeAdminConversation){alert('Please select a customer conversation first.');return}const r=await supabase.from('support_messages').insert({conversation_id:activeAdminConversation,sender_id:user.id,sender_is_admin:true,message:msg}).select().single();if(r.error){alert('Message could not be sent: '+r.error.message);return}const update=await supabase.from('support_conversations').update({status:'replied',updated_at:new Date().toISOString()}).eq('id',activeAdminConversation);if(update.error){alert('Your message was sent, but conversation status could not update: '+update.error.message)}$('adminSupportInput').value='';await selectAdminConversation(activeAdminConversation);await loadAdminConversations()}
 async function resolveAdminSupport(){if(!activeAdminConversation){alert('Please select a customer conversation first.');return}const id=activeAdminConversation;const r=await supabase.from('support_conversations').update({status:'resolved',updated_at:new Date().toISOString()}).eq('id',id);if(r.error){alert('Could not resolve conversation: '+r.error.message);return}activeAdminConversation=null;$('adminSupportTitle').textContent='Conversation resolved';$('adminSupportMessages').innerHTML='<div class="empty">This conversation has been marked resolved.</div>';await loadAdminConversations()}
 function csvDownload(rows,name){const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download=name;a.click();URL.revokeObjectURL(a.href)}
-$('themeToggle').onclick=()=>{const next=document.documentElement.dataset.theme==='dark'?'light':'dark';applyTheme(next);try{localStorage.setItem(THEME_KEY,next)}catch{}};
 $('navLogin').onclick=$('heroLogin').onclick=()=>openAuth(false);$('navSignup').onclick=$('heroSignup').onclick=()=>openAuth(true);$('authClose').onclick=()=>page(user?(isAdmin?'adminPanel':'customerPanel'):'welcomePanel');$('authSwitch').onclick=()=>openAuth($('authPanel').dataset.signup!=='yes');$('authSubmit').onclick=submitAuth;$('navLogout').onclick=leaveApp;
 $('menuOpen').onclick=openMenu;$('menuClose').onclick=closeMenu;$('drawerShade').onclick=closeMenu;document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>{const map={dashboard:'customerPanel',airtime:'airtimePanel',data:'dataPanel',orders:'ordersPanel',transactions:'transactionsPanel',pendingPayments:'pendingPaymentsPanel',profile:'profilePanel',topup:'topupPanel',support:'supportPanel'};if(b.dataset.page==='dashboard')loadOrders();if(b.dataset.page==='orders')renderOrders();if(b.dataset.page==='transactions'||b.dataset.page==='pendingPayments')loadTransactions();if(b.dataset.page==='support')loadCustomerSupport();page(map[b.dataset.page]||'customerPanel')}));$('profileOpen').onclick=()=>page('profilePanel');$('quickAirtime').onclick=()=>{loadWallet();page('airtimePanel')};$('quickData').onclick=()=>{loadWallet();page('dataPanel')};$('quickOrders').onclick=()=>{renderOrders();page('ordersPanel')};$('quickTransactions').onclick=()=>{loadTransactions();page('transactionsPanel')};$('quickProfile').onclick=()=>page('profilePanel');$('quickSupport').onclick=()=>{loadCustomerSupport();page('supportPanel')};$('recentViewAll').onclick=()=>{renderOrders();page('ordersPanel')};$('topUpBtn').onclick=()=>{loadWallet();page('topupPanel')};document.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>page('customerPanel'));
 async function startWalletTopup(){

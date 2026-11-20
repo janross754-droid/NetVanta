@@ -894,6 +894,23 @@ async function refreshOpenSupportChat(){
   if(activeAdminConversation)await selectAdminConversation(activeAdminConversation);
  }
 }
+async function autoRefreshCustomerSupplierOrders(){
+ if(!user||isAdmin||document.visibilityState!=='visible'||supplierAutoRefreshRunning)return;
+ const pending=orders.filter(o=>o.supplier_reference&&['pending','queued','processing','blacklisted'].includes(normalizeOrderStatus(o.status)));
+ if(!pending.length)return;
+ supplierAutoRefreshRunning=true;
+ try{
+  let checked=false;
+  for(const order of pending){
+   const {data,error}=await supabase.functions.invoke('kingflexy-live-order',{body:{action:'check_order',order_id:order.id}});
+   if(!error&&data?.success)checked=true;
+  }
+  if(checked)await loadOrders();
+ }catch(error){console.error('Automatic supplier order status check failed:',error)}
+ finally{supplierAutoRefreshRunning=false}
+}
+let supplierAutoRefreshRunning=false;
+setInterval(()=>{autoRefreshCustomerSupplierOrders()},60000);
 setInterval(()=>{refreshOpenSupportChat().catch(e=>console.error('Support chat refresh failed:',e))},10000);
 $('sessionDiagnostic').textContent='Login check: checking saved session…';
 supabase.auth.onAuthStateChange((event,nextSession)=>{queueMicrotask(()=>{if(event==='PASSWORD_RECOVERY'){page('passwordResetPanel');$('passwordResetMsg').textContent='Enter and confirm your new password.';return}if(nextSession?.user){if(!user||user.id!==nextSession.user.id)enterApp(nextSession.user)}else if(event==='SIGNED_OUT'){user=null;isAdmin=false;profile=null;wallet=0;orders=[];transactions=[];page('welcomePanel')}})});

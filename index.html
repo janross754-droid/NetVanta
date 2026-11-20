@@ -534,7 +534,7 @@ async function buyDataWithWallet(){
  if(!/^0[235]\d{8}$/.test(phone)){$('dataCatalogMsg').textContent='Enter a valid 10-digit Ghana phone number.';return}
  const {data:product,error:productError}=await supabase.from('product_catalog').select('id,bundle_name,network,selling_price,supplier_cost').eq('id',productId).eq('is_active',true).maybeSingle();
  if(productError||!product){$('dataCatalogMsg').textContent='This package is no longer available. Refresh the catalogue.';return}
- if(!confirm('Confirm '+product.bundle_name+' for '+phone+' at '+money(product.selling_price)+'? The amount will be deducted from your NetVanta wallet once, and delivery will be sent through KiNG FLEXY.'))return;
+ if(!confirm('Confirm '+product.bundle_name+' for '+phone+' at '+money(product.selling_price)+'? The amount will be deducted from your NetVanta wallet once, and delivery will be sent to the supplier.'))return;
  const storageKey='netvanta-order:'+user.id+':'+productId+':'+phone;
  let idempotencyKey='';
  try{idempotencyKey=sessionStorage.getItem(storageKey)||''}catch{}

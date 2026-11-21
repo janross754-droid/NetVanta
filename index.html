@@ -788,9 +788,69 @@ body.session-pending #heroSection,body.session-pending #welcomePanel{display:non
 #supportPanel .support-chat-compose{padding:10px 12px 8px!important}
 }
 
+
+/* NetVanta premium navigation drawer */
+.menu-trigger{width:44px;height:42px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0!important;border:1px solid #b99148!important;border-radius:13px!important;background:linear-gradient(145deg,#173b68,#0a2344)!important;box-shadow:0 5px 16px #020e202e;transition:transform .2s,border-color .2s}
+.menu-trigger span{display:block;width:19px;height:2px;border-radius:4px;background:#e5bd70;transition:transform .22s,opacity .18s}
+.menu-trigger:hover{transform:translateY(-1px);border-color:#f0cf8a!important}
+.menu-open .menu-trigger span:first-child{transform:translateY(7px) rotate(45deg)}
+.menu-open .menu-trigger span:nth-child(2){opacity:0}
+.menu-open .menu-trigger span:last-child{transform:translateY(-7px) rotate(-45deg)}
+.drawerShade{background:rgba(3,15,34,.68);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:1;transition:opacity .24s}
+.drawer{width:min(370px,88vw);padding:0;background:#f7f9fc;color:#142b49;box-shadow:20px 0 55px #06172b45;border-right:1px solid #dce4ee;display:flex;flex-direction:column;gap:0;transform:translateX(0);animation:nvDrawerIn .25s cubic-bezier(.2,.8,.2,1)}
+@keyframes nvDrawerIn{from{transform:translateX(-22px);opacity:.75}to{transform:translateX(0);opacity:1}}
+.drawerHead{margin:0;padding:20px 19px 17px;background:linear-gradient(125deg,#102f55,#071d39);color:#fff;display:flex;align-items:center;justify-content:space-between}
+.drawer-brand{display:flex;align-items:center;gap:11px}
+.drawer-logo{width:43px;height:43px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(145deg,#f2d28f,#bd8b39);color:#102b4b;font-size:23px;font-weight:950;box-shadow:0 5px 15px #0003}
+.drawer-brand b{display:block;font-size:18px;letter-spacing:-.3px}
+.drawer-brand small{display:block;margin-top:3px;color:#d7c18e;font-size:9px;font-weight:800;letter-spacing:1.35px}
+.drawer-close{width:36px;height:36px;border:1px solid #ffffff35;border-radius:11px;background:#ffffff12;color:#fff;font-size:25px;line-height:1}
+.drawer-welcome{padding:22px 21px 19px;background:linear-gradient(135deg,#eaf1fa,#f8fafd);border-bottom:1px solid #e2e9f1}
+.drawer-eyebrow,.drawer-section-label{display:block;color:#a27a36;font-size:9px;font-weight:900;letter-spacing:1.5px}
+.drawer-welcome strong{display:block;margin-top:7px;color:#102b4b;font-size:17px;letter-spacing:-.3px}
+.drawer-welcome small{display:block;margin-top:5px;color:#718198;font-size:11px;line-height:1.5}
+.drawer-section-label{padding:19px 21px 8px;color:#8492a5}
+.drawer-links{padding:0 12px;display:flex;flex-direction:column;gap:4px}
+.drawer .menuItem{display:flex;align-items:center;gap:12px;width:100%;margin:0;padding:10px 11px;min-height:57px;border:1px solid transparent;border-radius:13px;background:transparent;color:#183452;text-align:left;transition:background .18s,border-color .18s,transform .18s}
+.drawer .menuItem:hover,.drawer .menuItem:focus-visible{background:#fff;border-color:#e1e8f1;transform:translateX(2px);outline:none}
+.menu-icon{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;border-radius:11px;background:#e8eff8;color:#234d78;font-size:19px;font-weight:800}
+.menu-copy{min-width:0;display:flex;flex:1;flex-direction:column;gap:3px}
+.menu-copy b{font-size:12px;font-weight:850}
+.menu-copy small{font-size:10px;color:#8190a3;font-weight:500}
+.menu-arrow{color:#b18a49;font-size:23px;font-weight:400}
+.drawer-support{margin:17px 17px 13px;padding:13px 12px;display:grid;grid-template-columns:34px 1fr;align-items:center;gap:4px 10px;border:1px solid #ead9b8;border-radius:14px;background:linear-gradient(135deg,#fffaf0,#fff)}
+.drawer-support-icon{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:#f1dfbb;color:#795b26;font-weight:900}
+.drawer-support b{display:block;color:#263d58;font-size:11px}
+.drawer-support small{display:block;margin-top:3px;color:#8994a4;font-size:9px}
+.drawer-support-link{grid-column:2;border:0;background:transparent;padding:5px 0 0;text-align:left;color:#9b712e;font-size:10px;font-weight:850}
+.drawer-support-link span{font-size:16px;vertical-align:-1px}
+.drawer-foot{margin-top:auto;padding:15px 20px calc(17px + env(safe-area-inset-bottom));display:flex;align-items:center;gap:9px;border-top:1px solid #e4eaf1;color:#304761;font-size:11px;font-weight:850}
+.drawer-foot-mark{width:26px;height:26px;display:grid;place-items:center;border-radius:8px;background:#12365f;color:#e8c47c;font-weight:950}
+.drawer-foot small{display:block;margin-top:2px;color:#8b98a8;font-size:9px;font-weight:500}
+@media(max-width:700px){.drawer{width:min(350px,88vw)}.drawerHead{padding-top:calc(17px + env(safe-area-inset-top))}.drawer-foot{padding-bottom:calc(17px + env(safe-area-inset-bottom))}}
+
 </style></head><body class="session-pending">
-<header class="top"><div class="nav"><div class="brand"><span class="logo">N</span><span>NetVanta</span></div><div class="navright"><button type="button" id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><button type="button" id="profileOpen" class="profileBtn hidden" aria-label="Open profile">◎</button><button type="button" id="navLogin" class="light">Log in</button><button type="button" id="navSignup" class="primary">Create account</button><button type="button" id="navLogout" class="outline hidden">Log out</button></div></div></header>
-<div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="pendingPayments">Pending Payments</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>
+<header class="top"><div class="nav"><div class="brand"><span class="logo">N</span><span>NetVanta</span></div><div class="navright"><button type="button" id="menuOpen" class="iconbtn menu-trigger hidden" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button><button type="button" id="profileOpen" class="profileBtn hidden" aria-label="Open profile">◎</button><button type="button" id="navLogin" class="light">Log in</button><button type="button" id="navSignup" class="primary">Create account</button><button type="button" id="navLogout" class="outline hidden">Log out</button></div></div></header>
+<div id="drawerShade" class="drawerShade hidden"></div>
+<aside id="drawer" class="drawer hidden" aria-label="Main navigation" aria-hidden="true">
+  <div class="drawerHead">
+    <div class="drawer-brand"><span class="drawer-logo">N</span><span><b>NetVanta</b><small>YOUR ACCOUNT MENU</small></span></div>
+    <button id="menuClose" class="drawer-close" type="button" aria-label="Close menu">×</button>
+  </div>
+  <div class="drawer-welcome"><span class="drawer-eyebrow">NAVIGATION</span><strong>Where would you like to go?</strong><small>Manage your account and stay connected.</small></div>
+  <div class="drawer-section-label">YOUR ACCOUNT</div>
+  <nav class="drawer-links">
+    <button class="menuItem" data-page="dashboard"><span class="menu-icon">⌂</span><span class="menu-copy"><b>Dashboard</b><small>Your account overview</small></span><span class="menu-arrow">›</span></button>
+    <button class="menuItem" data-page="data"><span class="menu-icon">▤</span><span class="menu-copy"><b>Buy Data</b><small>Choose a data bundle</small></span><span class="menu-arrow">›</span></button>
+    <button class="menuItem" data-page="airtime"><span class="menu-icon">◉</span><span class="menu-copy"><b>Buy Airtime</b><small>Top up a phone number</small></span><span class="menu-arrow">›</span></button>
+    <button class="menuItem" data-page="orders"><span class="menu-icon">▣</span><span class="menu-copy"><b>My Orders</b><small>Track your purchases</small></span><span class="menu-arrow">›</span></button>
+    <button class="menuItem" data-page="transactions"><span class="menu-icon">↔</span><span class="menu-copy"><b>Transactions</b><small>View wallet activity</small></span><span class="menu-arrow">›</span></button>
+    <button class="menuItem" data-page="pendingPayments"><span class="menu-icon">◷</span><span class="menu-copy"><b>Pending Payments</b><small>Check payment status</small></span><span class="menu-arrow">›</span></button>
+    <button class="menuItem" data-page="profile"><span class="menu-icon">◎</span><span class="menu-copy"><b>My Profile</b><small>Update your details</small></span><span class="menu-arrow">›</span></button>
+  </nav>
+  <div class="drawer-support"><span class="drawer-support-icon">?</span><span><b>Need a hand?</b><small>Our support team is here to help.</small></span><button class="drawer-support-link" data-page="support" type="button">Get help <span>›</span></button></div>
+  <div class="drawer-foot"><span class="drawer-foot-mark">N</span><span>NetVanta <small>Stay connected, effortlessly.</small></span></div>
+</aside>
 <section id="heroSection" class="hero top nv-hero">
   <div class="nv-hero-copy">
     <div class="eyebrow">STAY CONNECTED, EFFORTLESSLY</div>
@@ -914,8 +974,8 @@ const date=s=>s?new Date(s).toLocaleString('en-GH',{dateStyle:'medium',timeStyle
 function normalizeOtpPhone(value){let v=String(value||'').trim().replace(/[\s()-]/g,'');if(v.startsWith('00'))v='+'+v.slice(2);if(/^0\d{9}$/.test(v))v='+233'+v.slice(1);else if(/^233\d{9}$/.test(v))v='+'+v;return /^\+[1-9]\d{7,14}$/.test(v)?v:null}
 async function otpErrorMessage(error,fallback){if(error){try{const body=await error.context.json();return body.error||body.message||fallback}catch{return error.message||fallback}}return fallback}
 function page(name){pages.forEach(id=>$(id).classList.toggle('hidden',id!==name));if(name==='dataPanel'&&user)loadCustomerCatalog();$('heroSection').classList.toggle('hidden',name!=='welcomePanel');$('menuOpen').classList.toggle('hidden',!user||isAdmin);$('profileOpen').classList.toggle('hidden',!user||isAdmin);$('navLogin').classList.toggle('hidden',!!user);$('navSignup').classList.toggle('hidden',!!user);$('navLogout').classList.toggle('hidden',!user);if(user&&!isAdmin){$('chatFab').classList.remove('hidden')}else $('chatFab').classList.add('hidden');closeMenu();window.scrollTo({top:0,behavior:'instant'})}
-function openMenu(){$('drawer').classList.remove('hidden');$('drawerShade').classList.remove('hidden')}
-function closeMenu(){$('drawer').classList.add('hidden');$('drawerShade').classList.add('hidden')}
+function openMenu(){$('drawer').classList.remove('hidden');$('drawerShade').classList.remove('hidden');$('drawer').setAttribute('aria-hidden','false');$('menuOpen').setAttribute('aria-expanded','true');document.body.classList.add('menu-open')}
+function closeMenu(){$('drawer').classList.add('hidden');$('drawerShade').classList.add('hidden');$('drawer').setAttribute('aria-hidden','true');$('menuOpen').setAttribute('aria-expanded','false');document.body.classList.remove('menu-open')}
 function normalizeOrderStatus(value){const s=String(value||'unknown').toLowerCase().trim().replace(/[ -]+/g,'_');if(['success','successful','complete','delivered'].includes(s))return 'completed';if(['in_progress','inprogress','submitted'].includes(s))return 'processing';if(['awaiting_supplier','waiting_supplier'].includes(s))return 'queued';if(['awaiting_payment','payment_pending'].includes(s))return 'pending';if(['canceled'].includes(s))return 'cancelled';return s}
 function orderStatusInfo(value){const status=normalizeOrderStatus(value);const known={completed:['Completed','Your order is marked as complete.'],processing:['Processing','Your order is being processed.'],queued:['Queued','Your order is waiting for supplier confirmation.'],pending:['Pending','Your order is awaiting payment or confirmation.'],failed:['Failed','This order was not completed. If your wallet was charged, contact support with this order reference.'],reversed:['Reversed','The transaction was reversed. Check your wallet history for the matching entry.'],refunded:['Refunded','The amount was refunded to your wallet. Check your transaction history for the refund record.'],cancelled:['Cancelled','This order was cancelled.']};const info=known[status]||[status.replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase()),''];return {status,statusClass:status.replace(/[^a-z0-9_-]/g,''),label:info[0],help:info[1]}}
 function fmtOrder(o){const info=orderStatusInfo(o.status),product=String(o.product_type||'data').toLowerCase()==='airtime'?'Airtime':'Data';const detail=o.bundle_name||o.product_name||'';return '<tr><td><span class="order-ref">#'+esc(String(o.id).slice(0,8))+'</span></td><td>'+esc(o.network||'—')+'</td><td>'+esc(product)+(detail?' · '+esc(detail):'')+(o.bundle_gb?' · '+esc(o.bundle_gb)+' GB':'')+'</td><td>'+money(o.amount)+'</td><td><span class="order-status status-'+esc(info.statusClass)+'" title="'+esc(info.help)+'">'+esc(info.label)+'</span>'+(info.help?'<div class="order-status-help">'+esc(info.help)+'</div>':'')+'</td><td>'+date(o.created_at)+'</td></tr>'}

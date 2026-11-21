@@ -447,7 +447,7 @@ body{background:#f5f8ff}
 .nv-networks span{flex:1;display:grid;place-items:center;min-height:66px;border-radius:15px;font-size:25px;font-weight:950;box-shadow:0 8px 20px #00194b35}
 .nv-mtn{background:#ffdf00;color:#08245d}.nv-telecel{background:#e51d3e;color:#fff}.nv-at{background:#fff;color:#0755d6;font-style:italic}
 .nv-hero-art{position:relative;min-height:470px;display:flex;align-items:flex-end;justify-content:center}
-.nv-hero-art svg{position:relative;z-index:1;width:min(100%,480px);max-height:500px;filter:drop-shadow(0 18px 22px #00144066)}
+.nv-hero-art img{position:relative;z-index:1;width:min(100%,480px);max-height:500px;object-fit:contain;filter:drop-shadow(0 18px 22px #00144066)}
 .nv-signal{position:absolute;right:15%;top:6%;font-size:72px;color:#fff;transform:rotate(90deg);opacity:.9}
 .nv-art-glow{position:absolute;width:75%;height:45%;right:4%;bottom:0;background:linear-gradient(130deg,transparent,#00a5ff55,transparent);border-radius:50%;filter:blur(25px)}
 .nv-benefits{max-width:none;display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:22px max(5vw,24px);background:#06184f;color:#fff;border-top:1px solid #ffffff25}
@@ -465,7 +465,7 @@ body{background:#f5f8ff}
  .nv-hero h1{font-size:clamp(39px,10vw,58px);letter-spacing:-1.8px}
  .nv-hero h2{font-size:23px}
  .nv-hero-art{min-height:330px;margin-top:5px}
- .nv-hero-art svg{width:min(100%,340px);max-height:350px}
+ .nv-hero-art img{width:min(100%,340px);max-height:350px;object-fit:contain}
  .nv-signal{top:2%;right:8%;font-size:55px}
  .nv-networks span{min-height:54px;font-size:19px}
  .nv-benefits{grid-template-columns:repeat(2,1fr);padding:15px 12px;row-gap:10px}
@@ -490,22 +490,7 @@ body{background:#f5f8ff}
   </div>
   <div class="nv-hero-art" aria-label="NetVanta customer using a smartphone">
     <div class="nv-signal">◔</div>
-    <svg viewBox="0 0 470 500" role="img" aria-label="Illustration of a smiling customer holding a smartphone">
-      <defs><linearGradient id="nvshirt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe21a"/><stop offset="1" stop-color="#ffb900"/></linearGradient><linearGradient id="nvskin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a95d3d"/><stop offset="1" stop-color="#6e3829"/></linearGradient></defs>
-      <path d="M50 500 Q70 365 170 350 L300 350 Q410 370 440 500Z" fill="url(#nvshirt)"/>
-      <path d="M160 115 Q105 35 175 18 Q270 -20 325 65 Q355 115 320 245 L290 360 L130 330Z" fill="#20151b"/>
-      <g stroke="#3b2223" stroke-width="9" fill="none" stroke-linecap="round"><path d="M165 40 Q125 135 155 265"/><path d="M190 22 Q150 140 180 305"/><path d="M220 15 Q185 145 215 320"/><path d="M250 25 Q220 150 250 315"/><path d="M280 40 Q260 155 285 290"/><path d="M305 70 Q295 160 315 250"/></g>
-      <path d="M164 95 Q180 48 255 55 Q322 65 320 160 L300 245 Q270 295 205 260 Q160 225 150 155Z" fill="url(#nvskin)"/>
-      <path d="M160 142 Q185 110 220 132 M255 128 Q290 110 310 140" fill="none" stroke="#29191a" stroke-width="9" stroke-linecap="round"/>
-      <path d="M180 172 Q205 190 225 172 M260 170 Q280 188 298 166" fill="none" stroke="#251719" stroke-width="5" stroke-linecap="round"/>
-      <path d="M218 205 Q248 245 282 207 Q252 270 218 205Z" fill="#fff"/><path d="M220 210 Q250 226 280 210" fill="none" stroke="#542b28" stroke-width="5"/>
-      <path d="M160 245 Q145 300 190 345 L250 360 Q300 330 304 260" fill="url(#nvskin)"/>
-      <path d="M60 500 Q85 405 155 365 L205 385 L185 500Z" fill="#f4bd13"/><path d="M310 370 Q390 390 420 500 L280 500Z" fill="#f7c51b"/>
-      <g transform="rotate(-12 210 350)"><rect x="150" y="265" width="100" height="165" rx="18" fill="#b9c0c9" stroke="#e9edf2" stroke-width="5"/><rect x="158" y="273" width="84" height="149" rx="13" fill="#34465b"/><circle cx="174" cy="290" r="9" fill="#121a26" stroke="#84909e" stroke-width="3"/><circle cx="198" cy="290" r="9" fill="#121a26" stroke="#84909e" stroke-width="3"/><circle cx="174" cy="314" r="9" fill="#121a26" stroke="#84909e" stroke-width="3"/><circle cx="198" cy="314" r="3" fill="#e7eaf0"/></g>
-      <path d="M115 355 Q145 330 172 350 L205 385 Q218 407 200 420 Q185 432 165 414 L125 390 Q100 375 115 355Z" fill="url(#nvskin)"/>
-      <path d="M240 365 Q265 340 285 360 L318 395 Q330 414 310 428 Q290 438 272 420 L238 395 Q225 380 240 365Z" fill="url(#nvskin)"/>
-      <circle cx="324" cy="220" r="13" fill="none" stroke="#ffd43b" stroke-width="5"/>
-    </svg>
+    <img src="/assets/netvanta-hero-woman.jpg" alt="Smiling woman in a yellow top holding a silver iPhone 15 Pro Max" loading="eager" decoding="async">
     <div class="nv-art-glow"></div>
   </div>
 </section>

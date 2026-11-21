@@ -752,7 +752,8 @@ body{background:#f5f8ff}
  #customerPanel .customer-quick-panel .action-card{padding:9px;font-size:10px}
 }
 
-</style></head><body>
+body.session-pending #heroSection,body.session-pending #welcomePanel{display:none!important}
+</style></head><body class="session-pending">
 <header class="top"><div class="nav"><div class="brand"><span class="logo">N</span><span>NetVanta</span></div><div class="navright"><button type="button" id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><button type="button" id="profileOpen" class="profileBtn hidden" aria-label="Open profile">◎</button><button type="button" id="navLogin" class="light">Log in</button><button type="button" id="navSignup" class="primary">Create account</button><button type="button" id="navLogout" class="outline hidden">Log out</button></div></div></header>
 <div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="pendingPayments">Pending Payments</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>
 <section id="heroSection" class="hero top nv-hero">
@@ -1321,4 +1322,5 @@ authRestoreStarted=true;
 if(sessionError){console.error('NetVanta session restore failed:',sessionError);$('sessionDiagnostic').textContent='Login check: Supabase could not restore the saved session ('+sessionError.message+').'}
 else if(session?.user){$('sessionDiagnostic').textContent='Login check: saved session restored successfully.';if(!user||user.id!==session.user.id)await enterApp(session.user)}
 else if(!user){const storageAfterRestore=authStorageStatus();$('sessionDiagnostic').textContent=storageAfterRestore==='blocked'?'Login check: Safari is blocking access to saved session storage.':storageAfterRestore==='saved'?'Login check: saved session data exists, but Supabase did not restore it.':'Login check: no saved session was found in this Safari browser.';page('welcomePanel')}
+document.body.classList.remove('session-pending');
 </script></body></html>

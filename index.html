@@ -526,6 +526,66 @@ body{background:#f5f8ff}
 }
 @media(prefers-reduced-motion:reduce){.nv-networks span:hover{transform:none}}
 
+
+/* NetVanta approved artwork composition — desktop and mobile */
+.nv-hero{position:relative;isolation:isolate;display:block;min-height:710px;padding:58px 5vw 145px;background:radial-gradient(ellipse at 76% 35%,#0879f0 0%,#0748c9 39%,#06184f 78%);overflow:hidden}
+.nv-hero:before{width:680px;height:680px;right:2%;top:-6%;border-color:#ffffff20;box-shadow:0 0 0 38px #ffffff08,0 0 0 82px #ffffff05}
+.nv-hero:after{content:"";position:absolute;z-index:-1;right:-8%;top:8%;width:58%;height:72%;background:linear-gradient(135deg,transparent 15%,#ffd000 15.5%,#ffd000 18%,transparent 18.5%,transparent 78%,#ffd000 78.5%,#ffd000 80%,transparent 80.5%);opacity:.85;transform:skewY(-13deg);pointer-events:none}
+.nv-hero-copy{position:relative;z-index:3;width:min(65%,790px);max-width:790px;padding:8px 0 0}
+.nv-hero .eyebrow{font-size:clamp(12px,1.1vw,15px);letter-spacing:2.4px}
+.nv-hero h1{font-size:clamp(48px,6.2vw,88px);line-height:.96;letter-spacing:-3.2px;margin:24px 0 12px;max-width:790px}
+.nv-hero h2{font-size:clamp(23px,2.6vw,36px);font-style:italic}
+.nv-gold-rule{height:5px;width:145px;margin:18px 0}
+.nv-hero-copy>p{font-size:clamp(18px,2vw,26px);margin:0 0 22px}
+.nv-hero-actions{margin:0 0 0;gap:12px}
+.nv-hero-actions .btn.primary{min-height:58px;padding:15px 32px;font-size:20px;background:linear-gradient(110deg,#ffcf00,#ffdf35);color:#071b55;border:0;box-shadow:0 10px 25px #00184b55}
+.nv-hero-actions .btn.light{min-height:52px}
+.nv-hero-art{position:absolute;z-index:2;right:1.5%;bottom:0;width:49%;height:100%;min-height:0;display:flex;align-items:flex-end;justify-content:center;pointer-events:none}
+.nv-hero-art img{width:100%;max-width:650px;height:100%;max-height:670px;object-fit:contain;object-position:center bottom;filter:drop-shadow(0 22px 28px #00144066)}
+.nv-signal{display:none}
+.nv-art-glow{width:80%;height:38%;right:0;bottom:2%;background:radial-gradient(ellipse,#00a5ff77,transparent 70%);filter:blur(28px)}
+.nv-networks{position:absolute;z-index:4;left:5vw;bottom:28px;width:min(62%,900px);max-width:none;gap:14px}
+.nv-networks span{min-height:84px;font-size:clamp(20px,2.3vw,30px);border-radius:18px;border:1px solid #ffffff80;box-shadow:0 12px 25px #00194b50}
+.nv-networks .nv-mtn{background:linear-gradient(140deg,#ffe62a,#ffca00)}
+.nv-networks .nv-telecel{background:linear-gradient(140deg,#ff4057,#cf0829)}
+.nv-networks .nv-at{background:linear-gradient(140deg,#fff,#eaf3ff)}
+.nv-benefits{position:relative;z-index:5;max-width:none;grid-template-columns:repeat(4,minmax(0,1fr));padding:16px max(5vw,24px);background:#06184f;border-top:2px solid #ffd000;border-bottom:2px solid #ffd000}
+.nv-benefits>div{min-height:74px;gap:16px;font-size:clamp(14px,1.35vw,19px);border-right:2px solid #ffd000}
+.nv-benefits b{font-size:clamp(30px,3vw,44px)}
+.nv-tagline{position:relative;isolation:isolate;min-height:110px;overflow:hidden;justify-content:center;background:linear-gradient(110deg,#ffdf35,#ffca00 48%,#ffe76b);color:#071b55}
+.nv-tagline:before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(170deg,transparent 55%,#ffffff88 56%,transparent 64%)}
+.nv-tagline strong{font-size:clamp(26px,3.4vw,43px);font-weight:950}
+.nv-tagline i{color:#071b55}
+.nv-tagline span{display:none}
+@media(max-width:760px){
+ .nv-hero{display:flex;flex-direction:column;align-items:stretch;min-height:0;padding:35px 20px 0;gap:0}
+ .nv-hero:before{width:360px;height:360px;right:-30%;top:23%}
+ .nv-hero:after{right:-35%;top:32%;width:95%;height:52%;opacity:.48}
+ .nv-hero-copy{width:100%;max-width:none;padding:0}
+ .nv-hero h1{font-size:clamp(40px,10.5vw,62px);line-height:.99;letter-spacing:-2px;margin:18px 0 12px}
+ .nv-hero h2{font-size:clamp(22px,5.7vw,29px)}
+ .nv-hero-copy>p{font-size:18px;margin-bottom:18px}
+ .nv-hero-actions{margin-bottom:18px}
+ .nv-hero-actions .btn.primary{min-height:53px;font-size:17px;padding:13px 23px}
+ .nv-hero-art{position:relative;right:auto;bottom:auto;width:100%;height:auto;min-height:0;max-height:none;margin:0 auto;align-items:flex-end}
+ .nv-hero-art img{width:min(100%,420px);height:auto;max-height:430px;object-fit:contain;object-position:center bottom}
+ .nv-art-glow{height:25%;bottom:0}
+ .nv-networks{position:relative;left:auto;bottom:auto;width:100%;margin:14px 0 18px;gap:8px}
+ .nv-networks span{min-height:58px;font-size:clamp(16px,4.5vw,21px);border-radius:12px}
+ .nv-benefits{grid-template-columns:repeat(2,minmax(0,1fr));padding:12px 14px;gap:2px}
+ .nv-benefits>div{min-height:64px;justify-content:flex-start;border-right:0;padding:8px 10px;font-size:13px;gap:10px}
+ .nv-benefits>div:nth-child(odd){border-right:1px solid #ffd00066}
+ .nv-benefits b{font-size:27px}
+ .nv-tagline{min-height:82px;padding:18px}
+ .nv-tagline strong{font-size:clamp(23px,6vw,30px);text-align:center}
+}
+@media(max-width:390px){
+ .nv-hero{padding-left:16px;padding-right:16px}
+ .nv-hero h1{font-size:39px}
+ .nv-hero-actions .btn{padding:12px 18px;font-size:15px}
+ .nv-networks span{min-height:53px;font-size:15px}
+}
+
 </style></head><body>
 <header class="top"><div class="nav"><div class="brand"><span class="logo">N</span><span>NetVanta</span></div><div class="navright"><button type="button" id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><button type="button" id="profileOpen" class="profileBtn hidden" aria-label="Open profile">◎</button><button type="button" id="navLogin" class="light">Log in</button><button type="button" id="navSignup" class="primary">Create account</button><button type="button" id="navLogout" class="outline hidden">Log out</button></div></div></header>
 <div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="pendingPayments">Pending Payments</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>
@@ -536,7 +596,7 @@ body{background:#f5f8ff}
     <h2>Data that keeps you moving.</h2>
     <div class="nv-gold-rule"></div>
     <p>Your next bundle, made simple.</p>
-    <div class="row nv-hero-actions"><button id="heroSignup" class="btn primary">＋ Create Account</button><button id="heroLogin" class="btn light">Log in</button></div>
+    <div class="row nv-hero-actions"><button id="heroSignup" class="btn primary">Get Started Today&nbsp; →</button><button id="heroLogin" class="btn light">Log in</button></div>
     <div class="nv-networks" aria-label="Available networks"><span class="nv-mtn">MTN</span><span class="nv-telecel">telecel</span><span class="nv-at">AT</span></div>
   </div>
   <div class="nv-hero-art" aria-label="NetVanta customer using a smartphone">

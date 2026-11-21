@@ -1045,6 +1045,85 @@ body.session-pending #heroSection,body.session-pending #welcomePanel{display:non
 #adminPanel .support-reply-row .btn{min-height:46px;white-space:nowrap}
 #adminPanel .support-chat-actions{display:flex;justify-content:flex-start;margin-top:9px}
 @media(max-width:680px){#adminPanel #adminSupportInboxPanel{padding:0}#adminPanel .support-inbox-heading{padding:16px;align-items:flex-start}#adminPanel .support-inbox-heading h2{font-size:18px}#adminPanel .support-online{padding:7px 9px;font-size:9px}#adminPanel .support-inbox-workspace{display:block;min-height:0}#adminPanel .support-thread-pane{padding:13px;border-right:0}#adminPanel .support-thread-list{max-height:none;overflow:visible}#adminPanel .support-thread-card{grid-template-columns:40px minmax(0,1fr) auto;padding:11px}#adminPanel .support-chat-pane{display:none;min-height:0}#adminPanel #adminSupportInboxPanel.chat-open .support-thread-pane{display:none}#adminPanel #adminSupportInboxPanel.chat-open .support-chat-pane{display:flex}#adminPanel .support-chat-heading{gap:9px;padding:12px;min-height:65px;flex-wrap:wrap}#adminPanel .support-back{display:inline-block}#adminPanel .support-person-avatar{width:36px;height:36px;flex:0 0 36px}#adminPanel .support-person-copy h3{font-size:13px}#adminPanel .support-chat-status{font-size:9px;padding:5px 8px}#adminPanel .support-chat-messages{min-height:48vh;max-height:58vh;padding:13px}#adminPanel .support-chat-bubble{max-width:88%;font-size:13px}#adminPanel .support-reply-area{padding:11px}#adminPanel .support-reply-row{align-items:stretch;flex-direction:column}#adminPanel .support-reply-row input{width:100%;height:46px}#adminPanel .support-reply-row .btn{width:100%}}
+
+/* NetVanta global button and tap design system */
+:root{
+ --nv-btn-navy:#102d70;
+ --nv-btn-navy-hover:#0b245d;
+ --nv-btn-gold:#e8b943;
+ --nv-btn-gold-hover:#d9a82f;
+ --nv-btn-soft:#eaf0fa;
+ --nv-btn-soft-text:#17345f;
+ --nv-btn-danger:#fce8e8;
+ --nv-btn-danger-text:#a52b35;
+}
+button,.btn,[role="button"]{
+ border-radius:12px;
+ transition:background-color .18s ease,border-color .18s ease,color .18s ease,box-shadow .18s ease,transform .12s ease;
+ -webkit-tap-highlight-color:transparent;
+}
+button:focus-visible,.btn:focus-visible,[role="button"]:focus-visible{
+ outline:3px solid #e8b943!important;
+ outline-offset:3px;
+}
+button:active:not(:disabled),.btn:active:not(:disabled),[role="button"]:active{
+ transform:translateY(1px);
+}
+button:disabled,.btn:disabled,[role="button"][aria-disabled="true"]{
+ opacity:.55;
+ cursor:not-allowed;
+ box-shadow:none!important;
+ transform:none!important;
+}
+button.primary,.btn.primary,.navright button.primary{
+ background:var(--nv-btn-navy)!important;
+ border:1px solid var(--nv-btn-navy)!important;
+ color:#fff!important;
+ box-shadow:0 5px 14px #102d7026;
+}
+button.primary:hover:not(:disabled),.btn.primary:hover:not(:disabled){
+ background:var(--nv-btn-navy-hover)!important;
+ border-color:var(--nv-btn-navy-hover)!important;
+ box-shadow:0 7px 18px #102d7033;
+}
+button.soft,.btn.soft{
+ background:var(--nv-btn-soft)!important;
+ border:1px solid #d8e2f2!important;
+ color:var(--nv-btn-soft-text)!important;
+}
+button.soft:hover:not(:disabled),.btn.soft:hover:not(:disabled){
+ background:#dce7f7!important;
+ border-color:#c4d4ec!important;
+}
+button.light,.btn.light{
+ background:#fff!important;
+ border:1px solid #dce5f2!important;
+ color:#17345f!important;
+}
+button.light:hover:not(:disabled),.btn.light:hover:not(:disabled){
+ background:#f4f7fc!important;
+ border-color:#c7d5e9!important;
+}
+button.danger,.btn.danger{
+ background:var(--nv-btn-danger)!important;
+ border:1px solid #f4caca!important;
+ color:var(--nv-btn-danger-text)!important;
+}
+button.danger:hover:not(:disabled),.btn.danger:hover:not(:disabled){
+ background:#f8dada!important;
+ border-color:#eeb5b5!important;
+}
+button.gold,.btn.gold,.btn-gold{
+ background:var(--nv-btn-gold)!important;
+ border:1px solid var(--nv-btn-gold)!important;
+ color:#14264b!important;
+ box-shadow:0 5px 14px #e8b94330;
+}
+button.gold:hover:not(:disabled),.btn.gold:hover:not(:disabled),.btn-gold:hover:not(:disabled){
+ background:var(--nv-btn-gold-hover)!important;
+ border-color:var(--nv-btn-gold-hover)!important;
+}
+
 </style></head><body class="session-pending">
 <header class="top"><div class="nav"><div class="brand"><span class="logo">N</span><span>NetVanta</span></div><div class="navright"><button type="button" id="menuOpen" class="iconbtn menu-trigger hidden" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button><button type="button" id="profileOpen" class="profileBtn hidden" aria-label="Open profile">◎</button><button type="button" id="navLogin" class="light">Log in</button><button type="button" id="navSignup" class="primary">Create account</button><button type="button" id="navLogout" class="outline hidden">Log out</button></div></div></header>
 <div id="drawerShade" class="drawerShade hidden"></div>

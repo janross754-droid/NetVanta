@@ -700,6 +700,8 @@ body{background:#f5f8ff}
  #customerPanel .customer-layout{display:block;width:100%;max-width:100%;margin:0}
  #customerPanel .customer-sidebar{display:none!important}
  #customerPanel .customer-main{display:grid;gap:12px;width:100%;min-width:0}
+ body:has(#customerPanel:not(.hidden)) .nv-benefits,
+ body:has(#customerPanel:not(.hidden)) .nv-tagline{display:none!important}
  #customerPanel .customer-mobile-header{display:flex;align-items:center;gap:10px;min-height:58px;padding:8px 4px 12px}
  #customerPanel .customer-mobile-logo{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,#2b82ff,#20d5d0);color:#071a35;font-size:21px;font-weight:950}
  #customerPanel .customer-mobile-header>span:nth-child(2){font-size:17px;font-weight:900;letter-spacing:-.4px;color:#10213d}

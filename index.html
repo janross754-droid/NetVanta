@@ -475,6 +475,57 @@ body{background:#f5f8ff}
 }
 @media(max-width:390px){.nv-hero{padding-left:15px;padding-right:15px}.nv-hero-actions .btn{padding:11px 14px;font-size:12px}.nv-networks{gap:7px}.nv-networks span{font-size:16px}}
 
+
+/* NetVanta homepage final polish */
+.nv-hero{min-height:clamp(570px,48vw,690px);align-items:center;padding-top:clamp(48px,5vw,76px);padding-bottom:clamp(38px,4vw,58px)}
+.nv-hero-copy{padding:8px 0}
+.nv-hero .eyebrow{display:inline-flex;align-items:center;gap:10px}
+.nv-hero .eyebrow:before{content:"";width:27px;height:3px;border-radius:5px;background:var(--gold)}
+.nv-hero h1{max-width:760px;text-wrap:balance}
+.nv-hero h2{line-height:1.2}
+.nv-hero-copy>p{line-height:1.4}
+.nv-hero-actions .btn{min-height:49px;display:inline-flex;align-items:center;justify-content:center;font-weight:850}
+.nv-hero-actions .btn.primary{border:1px solid #ffe36b}
+.nv-hero-actions .btn.light{background:#ffffff0d}
+.nv-networks span{letter-spacing:.2px;transition:transform .2s ease,box-shadow .2s ease}
+.nv-networks span:hover{transform:translateY(-3px);box-shadow:0 13px 24px #00194b45}
+.nv-hero-art{min-height:510px;align-self:stretch;align-items:flex-end}
+.nv-hero-art img{width:min(100%,510px);max-height:560px;object-position:center bottom;filter:drop-shadow(0 24px 28px #00144070)}
+.nv-signal{width:104px;height:104px;display:grid;place-items:center;border:2px solid #ffd000;border-radius:50%;font-size:56px;line-height:1;color:#ffd000;background:#ffffff0b;box-shadow:0 0 0 13px #ffd00012;transform:none}
+.nv-benefits{position:relative}
+.nv-benefits>div{min-height:72px}
+.nv-tagline{min-height:104px}
+.nv-tagline strong{letter-spacing:-1px}
+#welcomePanel{max-width:1050px;margin:22px auto 18px}
+@media(max-width:760px){
+ .nv-hero{min-height:unset;padding:35px 20px 0;grid-template-columns:minmax(0,1fr);text-align:left}
+ .nv-hero-copy{padding:0}
+ .nv-hero h1{font-size:clamp(40px,10.5vw,59px);line-height:1.01;margin:16px 0 12px;letter-spacing:-2px}
+ .nv-hero h2{font-size:clamp(21px,5.8vw,26px)}
+ .nv-gold-rule{margin:16px 0}
+ .nv-hero-copy>p{font-size:18px;margin-bottom:19px}
+ .nv-hero-actions{margin-bottom:22px;max-width:100%}
+ .nv-hero-actions .btn{flex:1;min-width:0;padding:12px 10px}
+ .nv-networks{width:100%;gap:9px}
+ .nv-networks span{min-height:53px;border-radius:12px;font-size:18px}
+ .nv-hero-art{min-height:0;height:auto;margin:12px auto 0;width:100%;max-width:430px;align-items:flex-end}
+ .nv-hero-art img{width:100%;max-height:430px;object-fit:contain;object-position:center bottom}
+ .nv-signal{width:70px;height:70px;right:5%;top:3%;font-size:39px}
+ .nv-benefits{padding:13px 14px;row-gap:4px}
+ .nv-benefits>div{min-height:60px;gap:10px}
+ .nv-benefits b{font-size:25px}
+ .nv-tagline{min-height:unset;gap:8px;padding:19px 20px}
+ #welcomePanel{margin:14px 12px 18px}
+}
+@media(max-width:390px){
+ .nv-hero{padding-left:15px;padding-right:15px}
+ .nv-hero h1{font-size:39px}
+ .nv-hero-actions{gap:8px}
+ .nv-hero-actions .btn{font-size:12px}
+ .nv-networks span{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.nv-networks span:hover{transform:none}}
+
 </style></head><body>
 <header class="top"><div class="nav"><div class="brand"><span class="logo">N</span><span>NetVanta</span></div><div class="navright"><button type="button" id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><button type="button" id="profileOpen" class="profileBtn hidden" aria-label="Open profile">◎</button><button type="button" id="navLogin" class="light">Log in</button><button type="button" id="navSignup" class="primary">Create account</button><button type="button" id="navLogout" class="outline hidden">Log out</button></div></div></header>
 <div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="pendingPayments">Pending Payments</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>

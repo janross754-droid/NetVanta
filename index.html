@@ -607,6 +607,44 @@ body{background:#f5f8ff}
  .nv-networks{position:relative;left:auto;bottom:auto;transform:none;width:100%;margin:14px auto 0}
 }
 
+
+
+/* NetVanta customer dashboard — polished blue, white and gold finish */
+#customerPanel{gap:0}
+#customerPanel>.panel{border:1px solid #e5edf7;border-radius:20px;padding:22px;margin-bottom:16px;background:#fff;box-shadow:0 9px 28px rgba(13,43,83,.055)}
+#customerPanel>.panel:first-child{background:linear-gradient(145deg,#fff 0%,#f7faff 100%);border-color:#dce8f8}
+#customerPanel #customerGreeting{font-size:25px;font-weight:850;letter-spacing:-.8px;color:#102b50}
+#customerPanel>.panel:first-child .head .muted{margin-top:5px}
+#customerPanel .wallet{position:relative;isolation:isolate;overflow:hidden;min-height:142px;padding:23px 24px;border:1px solid #285b9b;border-radius:18px;background:linear-gradient(112deg,#09264c 0%,#124b91 58%,#1769ff 100%);box-shadow:0 13px 27px rgba(23,83,155,.18)}
+#customerPanel .wallet:after{content:"";position:absolute;z-index:-1;width:190px;height:190px;right:68px;top:-125px;border:1px solid rgba(255,255,255,.16);border-radius:50%;box-shadow:0 0 0 22px rgba(255,255,255,.035),0 0 0 44px rgba(255,255,255,.025)}
+#customerPanel .wallet h2{font-size:34px;font-weight:850;letter-spacing:-1.1px}
+#customerPanel #topUpBtn{background:linear-gradient(135deg,#ffe39a,#f5c85d);color:#352607;border:1px solid #f7d987;border-radius:12px;padding:12px 17px;font-weight:850;box-shadow:0 5px 15px rgba(0,0,0,.13)}
+#customerPanel #topUpBtn:active{transform:translateY(1px)}
+#customerPanel .grid{gap:12px}
+#customerPanel .grid .stat{border:1px solid #e6edf6;border-radius:15px;padding:17px 18px;background:linear-gradient(145deg,#fff,#f8fbff)}
+#customerPanel .grid .stat small{font-weight:700;letter-spacing:.1px}
+#customerPanel .grid .stat b{color:#14365f;font-size:24px}
+#customerPanel>.panel:nth-child(2),#customerPanel>.panel:nth-child(3){background:#fff}
+#customerPanel>.panel:nth-child(2) .head h2,#customerPanel>.panel:nth-child(3) .head h2{font-size:20px;font-weight:850;color:#102b50}
+#customerPanel .action-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+#customerPanel .action-card{min-height:88px;padding:13px 14px;border:1px solid #e7edf5;border-radius:15px;background:#fff;box-shadow:0 4px 13px rgba(11,43,80,.045);font-size:13px}
+#customerPanel .action-card:hover{transform:translateY(-2px);border-color:#b8d0f7;box-shadow:0 9px 20px rgba(23,105,255,.10)}
+#customerPanel .action-icon{width:42px;height:42px;flex-basis:42px;border-radius:13px}
+#customerPanel #recentViewAll{border-radius:10px;font-size:12px}
+#customerPanel #recentOrders.empty{border:1px dashed #d7e2f0;border-radius:15px;background:#f9fbfe;padding:30px 18px}
+#customerPanel #recentOrders .recent-empty-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:#eaf2ff;color:#1769ff;font-size:21px}
+@media(max-width:700px){
+ #customerPanel>.panel{padding:17px;border-radius:17px;margin-bottom:13px}
+ #customerPanel #customerGreeting{font-size:21px}
+ #customerPanel .wallet{min-height:120px;padding:18px;border-radius:16px}
+ #customerPanel .wallet h2{font-size:28px}
+ #customerPanel #topUpBtn{padding:10px 13px;font-size:12px}
+ #customerPanel .grid .stat{padding:14px}
+ #customerPanel .grid .stat b{font-size:20px}
+ #customerPanel .action-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ #customerPanel .action-card{min-height:76px;padding:10px;border-radius:14px;font-size:12px}
+ #customerPanel .action-icon{width:37px;height:37px;flex-basis:37px;font-size:18px}
+}
 </style></head><body>
 <header class="top"><div class="nav"><div class="brand"><span class="logo">N</span><span>NetVanta</span></div><div class="navright"><button type="button" id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><button type="button" id="profileOpen" class="profileBtn hidden" aria-label="Open profile">◎</button><button type="button" id="navLogin" class="light">Log in</button><button type="button" id="navSignup" class="primary">Create account</button><button type="button" id="navLogout" class="outline hidden">Log out</button></div></div></header>
 <div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="pendingPayments">Pending Payments</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>

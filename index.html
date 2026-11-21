@@ -645,6 +645,53 @@ body{background:#f5f8ff}
  #customerPanel .action-card{min-height:76px;padding:10px;border-radius:14px;font-size:12px}
  #customerPanel .action-icon{width:37px;height:37px;flex-basis:37px;font-size:18px}
 }
+
+/* NetVanta customer dashboard: branded two-column workspace */
+.customer-layout{display:grid;grid-template-columns:238px minmax(0,1fr);gap:22px;align-items:start;max-width:1200px;margin:0 auto}
+.customer-sidebar{position:sticky;top:82px;min-height:calc(100vh - 105px);display:flex;flex-direction:column;padding:23px 16px 18px;background:linear-gradient(165deg,#071a35 0%,#0b2d57 100%);border-radius:21px;color:#fff;box-shadow:0 16px 38px #071a3526}
+.customer-side-brand{display:flex;align-items:center;gap:11px;padding:2px 8px 25px;font-size:19px;font-weight:900;letter-spacing:-.5px}
+.customer-side-brand small{display:block;margin-top:3px;color:#a9c2df;font-size:10px;font-weight:600;letter-spacing:.2px}
+.customer-side-logo{width:39px;height:39px;display:grid;place-items:center;border-radius:13px;background:linear-gradient(135deg,#2b82ff,#20d5d0);color:#071a35;font-size:22px;font-weight:950}
+.customer-side-label{padding:0 10px 10px;color:#7895b6;font-size:9px;font-weight:850;letter-spacing:1.5px}
+.customer-side-nav{display:grid;gap:6px}
+.customer-side-link{display:flex;align-items:center;gap:12px;width:100%;padding:12px 11px;border:1px solid transparent;border-radius:12px;background:transparent;color:#d7e5f5;text-align:left;font-size:12px;font-weight:750;transition:.18s ease}
+.customer-side-link span{width:22px;text-align:center;color:#8dbaff;font-size:17px}
+.customer-side-link:hover,.customer-side-link.active{background:linear-gradient(100deg,#1769ff45,#1769ff12);border-color:#477fbe55;color:#fff}
+.customer-side-link.active span{color:#65e0e4}
+.customer-side-help{margin-top:auto;padding:15px 13px;border:1px solid #355578;border-radius:15px;background:#ffffff0b}
+.customer-help-icon{width:29px;height:29px;display:grid;place-items:center;margin-bottom:10px;border-radius:9px;background:#f3c969;color:#172b49}
+.customer-side-help strong{font-size:12px}
+.customer-side-help p{margin:6px 0 12px;color:#b8cce2;font-size:10px;line-height:1.55}
+.customer-side-help button{padding:0;border:0;background:transparent;color:#73dce4;font-size:11px;font-weight:850}
+.customer-side-footer{padding:18px 5px 0;color:#7895b6;font-size:8px;font-weight:850;letter-spacing:1px;text-align:center}
+.customer-main{min-width:0;display:grid;gap:14px}
+.customer-welcome{display:flex;align-items:center;justify-content:space-between;padding:8px 5px 2px}
+.customer-kicker{color:#1769ff;font-size:9px;font-weight:900;letter-spacing:1.6px}
+.customer-welcome h2{margin:6px 0 4px;color:#10213d;font-size:27px;letter-spacing:-.8px}
+.customer-welcome p{margin:0}
+.customer-welcome-mark{width:43px;height:43px;display:grid;place-items:center;border:1px solid #dce8f8;border-radius:14px;background:linear-gradient(135deg,#eaf3ff,#fff);color:#1769ff;font-size:20px;font-weight:950}
+.customer-overview{margin:0;padding:19px}
+.customer-overview .wallet{margin-bottom:14px}
+.customer-overview .stat{background:linear-gradient(145deg,#fff,#f8fbff)}
+.customer-overview .stat span{display:block;margin-top:5px}
+.customer-quick-panel,.customer-recent-panel{margin:0}
+.customer-quick-panel .head{margin-bottom:14px}
+.customer-quick-panel .action-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.customer-promo{display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden;min-height:155px;padding:22px 25px;border:1px solid #244b78;border-radius:19px;background:linear-gradient(112deg,#0b2850 0%,#14539a 62%,#087f91 100%);color:#fff;box-shadow:0 13px 28px #0b285020}
+.customer-promo-eyebrow{color:#78e1e5;font-size:9px;font-weight:900;letter-spacing:1.5px}
+.customer-promo h3{margin:8px 0 6px;font-size:21px;letter-spacing:-.5px}
+.customer-promo p{max-width:430px;margin:0 0 13px;color:#d1e3f7;font-size:11px;line-height:1.55}
+.customer-promo button{padding:9px 12px;border:0;border-radius:9px;background:#f3c969;color:#10213d;font-size:10px;font-weight:900}
+.customer-network-stamps{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+.customer-network-stamps span{width:43px;height:43px;display:grid;place-items:center;border:2px solid #ffffff55;border-radius:50%;font-size:10px;font-weight:950;box-shadow:0 5px 15px #061a3433}
+.customer-network-stamps .stamp-mtn{background:#ffdf00;color:#171717}
+.customer-network-stamps .stamp-telecel{background:#e51d3e;color:#fff}
+.customer-network-stamps .stamp-at{background:#f06b35;color:#fff}
+.customer-recent-panel #recentOrders{margin-top:2px}
+@media(max-width:900px){.customer-layout{grid-template-columns:190px minmax(0,1fr);gap:14px}.customer-sidebar{padding:18px 11px}.customer-side-link{padding:11px 8px;font-size:11px}.customer-quick-panel .action-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.customer-layout{display:block}.customer-sidebar{position:static;min-height:0;margin-bottom:14px;padding:13px;border-radius:16px}.customer-side-brand{padding:0 3px 12px;font-size:17px}.customer-side-logo{width:34px;height:34px}.customer-side-label,.customer-side-help,.customer-side-footer{display:none}.customer-side-nav{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}.customer-side-nav::-webkit-scrollbar{display:none}.customer-side-link{flex:0 0 auto;width:auto;padding:9px 11px;font-size:10px;white-space:nowrap}.customer-side-link span{width:auto;font-size:14px}.customer-main{gap:11px}.customer-welcome{padding:5px 3px}.customer-welcome h2{font-size:22px}.customer-overview{padding:14px}.customer-promo{min-height:145px;padding:17px;border-radius:16px}.customer-promo h3{font-size:17px}.customer-network-stamps{gap:5px}.customer-network-stamps span{width:33px;height:33px;font-size:8px}.customer-quick-panel .action-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:380px){.customer-side-link{padding:8px 9px;font-size:9px}.customer-promo{gap:8px}.customer-network-stamps span{width:29px;height:29px}.customer-promo p{font-size:10px}}
+
 </style></head><body>
 <header class="top"><div class="nav"><div class="brand"><span class="logo">N</span><span>NetVanta</span></div><div class="navright"><button type="button" id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><button type="button" id="profileOpen" class="profileBtn hidden" aria-label="Open profile">◎</button><button type="button" id="navLogin" class="light">Log in</button><button type="button" id="navSignup" class="primary">Create account</button><button type="button" id="navLogout" class="outline hidden">Log out</button></div></div></header>
 <div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="pendingPayments">Pending Payments</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>
@@ -669,11 +716,39 @@ body{background:#f5f8ff}
 <button id="authSubmit" class="btn primary">Create Account</button> <button id="authSwitch" class="btn soft">I already have an account</button><p id="authMsg" class="muted"></p></section>
 <section id="passwordResetPanel" class="panel hidden"><div class="head"><div><h2>Choose a new password</h2><div class="muted">Enter a new password for your NetVanta account.</div></div></div><div class="field"><label for="newPassword">New password</label><input id="newPassword" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters"></div><div class="field"><label for="confirmNewPassword">Confirm new password</label><input id="confirmNewPassword" type="password" autocomplete="new-password" minlength="8" placeholder="Re-enter your new password"></div><button id="saveNewPassword" class="btn primary">Update password</button><p id="passwordResetMsg" class="muted" aria-live="polite"></p></section>
 <section id="customerPanel" class="hidden">
-<div class="panel"><div class="head"><div><h2 id="customerGreeting">Welcome back!</h2><div class="muted">Here's a summary of your account.</div></div></div>
-<div class="wallet"><div><small>Ghana Cedis Wallet</small><h2 id="walletBalance">GHS 0.00</h2><p>For local services — data, airtime</p></div><button id="topUpBtn" class="btn light">Top Up</button></div>
-<div class="grid"><div class="stat"><small>Total Orders</small><b id="allOrders">0</b></div><div class="stat"><small>Spent This Month</small><b id="monthSpent">GHS 0.00</b></div></div></div>
-<div class="panel"><div class="head"><h2>Quick Actions</h2></div><div class="action-grid"><button id="quickAirtime" class="action-card" data-action="airtime"><span class="action-icon">▰</span><span>Buy Airtime<small>Top up a number</small></span></button><button id="quickData" class="action-card" data-action="data"><span class="action-icon">◈</span><span>Buy Data<small>Choose a bundle</small></span></button><button id="quickOrders" class="action-card" data-action="orders"><span class="action-icon">▤</span><span>My Orders<small>Track purchases</small></span></button><button id="quickTransactions" class="action-card" data-action="transactions"><span class="action-icon">↗</span><span>Transactions<small>Wallet activity</small></span></button><button id="quickProfile" class="action-card" data-action="profile"><span class="action-icon">◎</span><span>My Profile<small>Manage your details</small></span></button><button id="quickSupport" class="action-card" data-action="support"><span class="action-icon">?</span><span>Get Support<small>Chat with our team</small></span></button></div></div>
-<div class="panel"><div class="head"><div><h2>Recent Orders</h2><div class="muted">Your latest bundle and airtime activity.</div></div><button id="recentViewAll" class="btn soft">View all →</button></div><div id="recentOrders" class="empty"><div class="recent-empty-icon">▤</div><strong>No orders yet</strong><p>Your order history will appear here after your first data purchase.</p></div></div>
+<div class="customer-layout">
+<aside class="customer-sidebar">
+  <div class="customer-side-brand"><span class="customer-side-logo">N</span><span>NetVanta<small>Customer space</small></span></div>
+  <div class="customer-side-label">MENU</div>
+  <nav class="customer-side-nav" aria-label="Customer navigation">
+    <button class="customer-side-link active" data-page="dashboard"><span>⌂</span>Dashboard</button>
+    <button class="customer-side-link" data-page="data"><span>◈</span>Buy Data</button>
+    <button class="customer-side-link" data-page="orders"><span>▤</span>My Orders</button>
+    <button class="customer-side-link" data-page="transactions"><span>↗</span>My Wallet & Activity</button>
+    <button class="customer-side-link" data-page="profile"><span>◎</span>My Profile</button>
+    <button class="customer-side-link" data-page="support"><span>?</span>Help & Support</button>
+  </nav>
+  <div class="customer-side-help"><span class="customer-help-icon">✦</span><strong>Need a hand?</strong><p>Our support team is here to help with your account and orders.</p><button data-page="support">Contact Support →</button></div>
+  <div class="customer-side-footer">STAY CONNECTED, EFFORTLESSLY.</div>
+</aside>
+<div class="customer-main">
+  <div class="customer-welcome"><div><div class="customer-kicker">YOUR NETVANTA SPACE</div><h2 id="customerGreeting">Welcome back!</h2><p class="muted">Here's a quick look at your account.</p></div><div class="customer-welcome-mark">N</div></div>
+  <div class="panel customer-overview">
+    <div class="wallet"><div><small>GHANA CEDIS WALLET BALANCE</small><h2 id="walletBalance">GHS 0.00</h2><p>Ready for your next bundle or airtime purchase</p></div><button id="topUpBtn" class="btn light">＋ Top Up</button></div>
+    <div class="grid"><div class="stat"><small>Total Orders</small><b id="allOrders">0</b><span>All your purchases</span></div><div class="stat"><small>Spent This Month</small><b id="monthSpent">GHS 0.00</b><span>Your monthly activity</span></div></div>
+  </div>
+  <div class="panel customer-quick-panel"><div class="head"><div><h2>Quick Actions</h2><div class="muted">What would you like to do today?</div></div></div><div class="action-grid">
+    <button id="quickAirtime" class="action-card" data-action="airtime"><span class="action-icon">▰</span><span>Buy Airtime<small>Top up a number</small></span></button>
+    <button id="quickData" class="action-card" data-action="data"><span class="action-icon">◈</span><span>Buy Data<small>Choose a bundle</small></span></button>
+    <button id="quickOrders" class="action-card" data-action="orders"><span class="action-icon">▤</span><span>My Orders<small>Track purchases</small></span></button>
+    <button id="quickTransactions" class="action-card" data-action="transactions"><span class="action-icon">↗</span><span>Transactions<small>Wallet activity</small></span></button>
+    <button id="quickProfile" class="action-card" data-action="profile"><span class="action-icon">◎</span><span>My Profile<small>Manage your details</small></span></button>
+    <button id="quickSupport" class="action-card" data-action="support"><span class="action-icon">?</span><span>Get Support<small>Chat with our team</small></span></button>
+  </div></div>
+  <div class="customer-promo"><div><span class="customer-promo-eyebrow">CONNECT MORE · DO MORE</span><h3>Your next connection starts here.</h3><p>Choose your network, find a bundle and stay connected with NetVanta.</p><button data-page="data">Explore Data Bundles →</button></div><div class="customer-network-stamps"><span class="stamp-mtn">MTN</span><span class="stamp-telecel">T</span><span class="stamp-at">AT</span></div></div>
+  <div class="panel customer-recent-panel"><div class="head"><div><h2>Recent Orders</h2><div class="muted">Your latest bundle and airtime activity.</div></div><button id="recentViewAll" class="btn soft">View all →</button></div><div id="recentOrders" class="empty"><div class="recent-empty-icon">▤</div><strong>No orders yet</strong><p>Your order history will appear here after your first purchase.</p></div></div>
+</div>
+</div>
 </section>
 <section id="topupPanel" class="panel hidden"><div class="head"><div><h2>Top Up Wallet</h2><div class="muted">Add money to your Ghana Cedis wallet.</div></div><button class="btn soft" data-back>← Back</button></div><div class="wallet"><div><small>Current Balance</small><h2 id="topupBalance">GHS 0.00</h2></div></div><div class="field"><label>Amount to top up (GHS)</label><input id="topupAmount" type="number" min="1" step="0.01" placeholder="e.g. 20.00"></div><button id="paystackTopup" class="btn soft" disabled>Awaiting Paystack Approval</button><div id="topupMsg" class="notice">Wallet deposits are temporarily unavailable while Paystack reviews your merchant account. NetVanta will not open test checkout or collect payment until live approval is confirmed.</div></section>
 <section id="airtimePanel" class="panel hidden"><div class="head"><div><h2>Buy Airtime</h2><div class="muted">Airtime purchases will open after supplier delivery is verified.</div></div><button class="btn soft" data-back>← Back</button></div><div class="wallet"><div><small>WALLET BALANCE</small><h2 id="airtimeBalance">GHS 0.00</h2></div><button class="btn light" data-page="topup">Top Up</button></div><div class="field"><label>Network</label><div class="network-grid"><button class="network network-card active" data-airnet="MTN"><span class="brand-mark brand-mtn">MTN</span><span class="network-name">MTN<span class="network-sub">Mobile network</span></span></button><button class="network network-card" data-airnet="AirtelTigo"><span class="brand-mark brand-at">AT</span><span class="network-name">AirtelTigo<span class="network-sub">Mobile network</span></span></button><button class="network network-card" data-airnet="Telecel"><span class="brand-mark brand-telecel">T</span><span class="network-name">Telecel<span class="network-sub">Mobile network</span></span></button></div></div><div class="field"><label>Phone Number</label><input id="airtimePhone" type="tel" placeholder="Recipient phone number"></div><div class="field"><label>Amount (GHS)</label><input id="airtimeAmount" type="number" min="1" step=".01" placeholder="Amount"></div><div class="muted" id="airtimeNetworkLabel">Network: MTN</div><button id="airtimePay" class="btn primary" style="margin-top:15px" disabled>Pay GHS 0.00 →</button><div class="notice">Airtime supplier activation is still pending. Purchases are disabled until live delivery is verified.</div></section>

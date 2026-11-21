@@ -692,6 +692,64 @@ body{background:#f5f8ff}
 @media(max-width:700px){.customer-layout{display:block}.customer-sidebar{position:static;min-height:0;margin-bottom:14px;padding:13px;border-radius:16px}.customer-side-brand{padding:0 3px 12px;font-size:17px}.customer-side-logo{width:34px;height:34px}.customer-side-label,.customer-side-help,.customer-side-footer{display:none}.customer-side-nav{display:flex;gap:7px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}.customer-side-nav::-webkit-scrollbar{display:none}.customer-side-link{flex:0 0 auto;width:auto;padding:9px 11px;font-size:10px;white-space:nowrap}.customer-side-link span{width:auto;font-size:14px}.customer-main{gap:11px}.customer-welcome{padding:5px 3px}.customer-welcome h2{font-size:22px}.customer-overview{padding:14px}.customer-promo{min-height:145px;padding:17px;border-radius:16px}.customer-promo h3{font-size:17px}.customer-network-stamps{gap:5px}.customer-network-stamps span{width:33px;height:33px;font-size:8px}.customer-quick-panel .action-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:380px){.customer-side-link{padding:8px 9px;font-size:9px}.customer-promo{gap:8px}.customer-network-stamps span{width:29px;height:29px}.customer-promo p{font-size:10px}}
 
+
+/* Phone-first customer app layout */
+.customer-mobile-header,.customer-mobile-nav{display:none}
+@media(max-width:700px){
+ #customerPanel{width:100%;max-width:100%;padding:0 0 88px!important;margin:0}
+ #customerPanel .customer-layout{display:block;width:100%;max-width:100%;margin:0}
+ #customerPanel .customer-sidebar{display:none!important}
+ #customerPanel .customer-main{display:grid;gap:12px;width:100%;min-width:0}
+ #customerPanel .customer-mobile-header{display:flex;align-items:center;gap:10px;min-height:58px;padding:8px 4px 12px}
+ #customerPanel .customer-mobile-logo{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,#2b82ff,#20d5d0);color:#071a35;font-size:21px;font-weight:950}
+ #customerPanel .customer-mobile-header>span:nth-child(2){font-size:17px;font-weight:900;letter-spacing:-.4px;color:#10213d}
+ #customerPanel .customer-mobile-header small{display:block;margin-top:2px;color:#8190a4;font-size:9px;font-weight:600;letter-spacing:0}
+ #customerPanel .customer-mobile-profile{margin-left:auto;width:38px;height:38px;border:1px solid #dce6f2;border-radius:50%;background:#fff;color:#1769ff;font-size:19px}
+ #customerPanel .customer-welcome{padding:5px 2px 2px}
+ #customerPanel .customer-welcome-mark{display:none}
+ #customerPanel .customer-welcome h2{font-size:22px;line-height:1.2}
+ #customerPanel .customer-overview{padding:14px;border-radius:17px}
+ #customerPanel .customer-overview .wallet{display:block;min-height:0;padding:18px;border-radius:15px}
+ #customerPanel .customer-overview .wallet h2{font-size:29px;line-height:1.15;overflow-wrap:anywhere}
+ #customerPanel .customer-overview .wallet p{max-width:220px;font-size:10px;line-height:1.45}
+ #customerPanel .customer-overview .wallet #topUpBtn{margin-top:13px;min-height:39px;padding:9px 14px}
+ #customerPanel .customer-overview .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ #customerPanel .customer-overview .stat{min-width:0;padding:12px;border-radius:12px}
+ #customerPanel .customer-overview .stat small{font-size:10px}
+ #customerPanel .customer-overview .stat b{font-size:18px;overflow-wrap:anywhere}
+ #customerPanel .customer-overview .stat span{font-size:9px}
+ #customerPanel .customer-quick-panel,#customerPanel .customer-recent-panel{padding:15px;border-radius:17px}
+ #customerPanel .customer-quick-panel .head h2,#customerPanel .customer-recent-panel .head h2{font-size:17px}
+ #customerPanel .customer-quick-panel .head .muted,#customerPanel .customer-recent-panel .head .muted{font-size:10px}
+ #customerPanel .customer-quick-panel .action-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ #customerPanel .customer-quick-panel .action-card{display:flex;min-width:0;min-height:72px;padding:10px;gap:8px;border-radius:13px;font-size:11px}
+ #customerPanel .customer-quick-panel .action-icon{width:34px;height:34px;flex:0 0 34px;border-radius:10px;font-size:17px}
+ #customerPanel .customer-quick-panel .action-card span:last-child{min-width:0;overflow-wrap:anywhere}
+ #customerPanel .customer-quick-panel .action-card small{font-size:9px}
+ #customerPanel .customer-promo{min-height:0;padding:16px;border-radius:16px;gap:8px}
+ #customerPanel .customer-promo h3{max-width:230px;font-size:16px;line-height:1.25}
+ #customerPanel .customer-promo p{max-width:230px;font-size:10px}
+ #customerPanel .customer-network-stamps{gap:4px}
+ #customerPanel .customer-network-stamps span{width:29px;height:29px;font-size:8px;border-width:1px}
+ #customerPanel .customer-recent-panel .head{align-items:center}
+ #customerPanel #recentViewAll{padding:8px 10px;font-size:10px;white-space:nowrap}
+ #customerPanel #recentOrders{max-width:100%;overflow-x:auto}
+ #customerPanel #recentOrders table{min-width:470px}
+ #customerPanel .customer-mobile-nav{position:fixed;z-index:25;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;padding:7px 5px calc(7px + env(safe-area-inset-bottom));border-top:1px solid #e5ebf3;background:#ffffffed;backdrop-filter:blur(16px);box-shadow:0 -7px 24px #071a3510}
+ #customerPanel .customer-mobile-nav button{display:grid;justify-items:center;align-content:center;gap:3px;min-width:0;min-height:48px;padding:3px 1px;border:0;border-radius:10px;background:transparent;color:#75849a;font-size:9px;font-weight:750}
+ #customerPanel .customer-mobile-nav button span{font-size:18px;line-height:1.1}
+ #customerPanel .customer-mobile-nav button.active{background:#edf4ff;color:#1455bd}
+ #customerPanel .customer-mobile-nav button:active{background:#e3efff}
+ body:has(#customerPanel:not(.hidden)) .chatFab{bottom:78px}
+}
+@media(max-width:380px){
+ #customerPanel .customer-overview .wallet{padding:15px}
+ #customerPanel .customer-overview .wallet h2{font-size:26px}
+ #customerPanel .customer-promo{padding:13px}
+ #customerPanel .customer-network-stamps{display:none}
+ #customerPanel .customer-quick-panel .action-card{padding:9px;font-size:10px}
+}
+
 </style></head><body>
 <header class="top"><div class="nav"><div class="brand"><span class="logo">N</span><span>NetVanta</span></div><div class="navright"><button type="button" id="menuOpen" class="iconbtn hidden" aria-label="Open menu">☰</button><button type="button" id="profileOpen" class="profileBtn hidden" aria-label="Open profile">◎</button><button type="button" id="navLogin" class="light">Log in</button><button type="button" id="navSignup" class="primary">Create account</button><button type="button" id="navLogout" class="outline hidden">Log out</button></div></div></header>
 <div id="drawerShade" class="drawerShade hidden"></div><aside id="drawer" class="drawer hidden"><div class="drawerHead"><b>NetVanta Menu</b><button id="menuClose" class="btn soft">Close</button></div><button class="menuItem" data-page="dashboard">Dashboard</button><button class="menuItem" data-page="airtime">Buy Airtime</button><button class="menuItem" data-page="data">Buy Data</button><button class="menuItem" data-page="orders">My Orders</button><button class="menuItem" data-page="transactions">Transactions</button><button class="menuItem" data-page="pendingPayments">Pending Payments</button><button class="menuItem" data-page="profile">My Profile</button><button class="menuItem" data-page="support">Contact Support</button></aside>
@@ -732,6 +790,7 @@ body{background:#f5f8ff}
   <div class="customer-side-footer">STAY CONNECTED, EFFORTLESSLY.</div>
 </aside>
 <div class="customer-main">
+  <div class="customer-mobile-header"><span class="customer-mobile-logo">N</span><span>NetVanta<small>Stay connected, effortlessly.</small></span><button class="customer-mobile-profile" data-page="profile" aria-label="Open profile">◎</button></div>
   <div class="customer-welcome"><div><div class="customer-kicker">YOUR NETVANTA SPACE</div><h2 id="customerGreeting">Welcome back!</h2><p class="muted">Here's a quick look at your account.</p></div><div class="customer-welcome-mark">N</div></div>
   <div class="panel customer-overview">
     <div class="wallet"><div><small>GHANA CEDIS WALLET BALANCE</small><h2 id="walletBalance">GHS 0.00</h2><p>Ready for your next bundle or airtime purchase</p></div><button id="topUpBtn" class="btn light">＋ Top Up</button></div>
@@ -748,6 +807,13 @@ body{background:#f5f8ff}
   <div class="customer-promo"><div><span class="customer-promo-eyebrow">CONNECT MORE · DO MORE</span><h3>Your next connection starts here.</h3><p>Choose your network, find a bundle and stay connected with NetVanta.</p><button data-page="data">Explore Data Bundles →</button></div><div class="customer-network-stamps"><span class="stamp-mtn">MTN</span><span class="stamp-telecel">T</span><span class="stamp-at">AT</span></div></div>
   <div class="panel customer-recent-panel"><div class="head"><div><h2>Recent Orders</h2><div class="muted">Your latest bundle and airtime activity.</div></div><button id="recentViewAll" class="btn soft">View all →</button></div><div id="recentOrders" class="empty"><div class="recent-empty-icon">▤</div><strong>No orders yet</strong><p>Your order history will appear here after your first purchase.</p></div></div>
 </div>
+<nav class="customer-mobile-nav" aria-label="Main navigation">
+  <button class="active" data-page="dashboard"><span>⌂</span>Home</button>
+  <button data-page="data"><span>◈</span>Buy Data</button>
+  <button data-page="orders"><span>▤</span>Orders</button>
+  <button data-page="transactions"><span>↗</span>Wallet</button>
+  <button data-page="support"><span>?</span>Support</button>
+</nav>
 </div>
 </section>
 <section id="topupPanel" class="panel hidden"><div class="head"><div><h2>Top Up Wallet</h2><div class="muted">Add money to your Ghana Cedis wallet.</div></div><button class="btn soft" data-back>← Back</button></div><div class="wallet"><div><small>Current Balance</small><h2 id="topupBalance">GHS 0.00</h2></div></div><div class="field"><label>Amount to top up (GHS)</label><input id="topupAmount" type="number" min="1" step="0.01" placeholder="e.g. 20.00"></div><button id="paystackTopup" class="btn soft" disabled>Awaiting Paystack Approval</button><div id="topupMsg" class="notice">Wallet deposits are temporarily unavailable while Paystack reviews your merchant account. NetVanta will not open test checkout or collect payment until live approval is confirmed.</div></section>
